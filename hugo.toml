@@ -1,4 +1,5 @@
 baseURL = 'https://example.org/'
+defaultContentLanguage = 'ja'
 languageCode = 'ja'
 title = 'T2-Lab'
 theme = "t2-lab"
