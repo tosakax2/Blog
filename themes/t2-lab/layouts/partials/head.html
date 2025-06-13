@@ -19,6 +19,9 @@
   href="https://cdn.jsdelivr.net/npm/noto-sans-cjk-jp@1.0.1/index.min.css"
 />
 
+<!-- CSS -->
+<link href="/css/main.css" rel="stylesheet" />
+
 <!-- TailWind CSS -->
 {{ with (templates.Defer (dict "key" "global")) }} {{ with resources.Get
 "css/main.css" }} {{ $opts := dict "minify" (not hugo.IsDevelopment) }} {{ with
