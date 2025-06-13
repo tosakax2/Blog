@@ -27,6 +27,7 @@
     "classes": [
       "bg-gray-100",
       "bg-gray-200",
+      "bg-gray-50",
       "bg-green-100",
       "bg-white",
       "block",

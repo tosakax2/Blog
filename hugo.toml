@@ -21,3 +21,8 @@ theme = "t2-lab"
     disableWatch = true
     source = 'hugo_stats.json'
     target = 'assets/notwatching/hugo_stats.json'
+[markup]
+  [markup.postCSS]
+    includePaths = ["assets/css"]
+    [markup.postCSS.options]
+      use = ["autoprefixer"]
