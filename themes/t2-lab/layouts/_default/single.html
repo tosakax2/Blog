@@ -1,0 +1,27 @@
+{{ define "main" }}
+<article class="prose mx-auto my-8">
+  <header>
+    <h1 class="text-3xl font-bold mb-4">{{ .Title }}</h1>
+    {{ with .Date }}
+    <time
+      class="block text-gray-400 text-sm mb-6"
+      datetime="{{ . }}"
+      >{{ .Format "2006-01-02" }}</time
+    >
+    {{ end }} {{ if .Params.tags }}
+    <div class="mb-6">
+      <span class="text-xs text-gray-400 mr-2">タグ:</span>
+      {{ range .Params.tags }}
+      <a
+        href="/tags/{{ . | urlize }}/"
+        class="text-xs inline-block rounded bg-gray-100 px-2 py-1 mr-1 hover:bg-gray-200"
+        >{{ . }}</a
+      >
+      {{ end }}
+    </div>
+    {{ end }}
+  </header>
+
+  <section>{{ .Content }}</section>
+</article>
+{{ end }}
