@@ -1,3 +1,2 @@
-body {
-  --tw-font-sans: "Noto Sans CJK JP", "Noto Sans JP", "Yu Gothic", "Meiryo", sans-serif;
-}
+@import "tailwindcss";
+@source "hugo_stats.json";

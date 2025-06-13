@@ -2,19 +2,16 @@
 <meta charset="utf-8" />
 
 <!-- ビューポートの設定 -->
-<meta
-  name="viewport"
-  content="width=device-width,initial-scale=1.0"
-/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
 
 <!-- タイトル -->
-<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+<title>
+  {{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title
+  site.Title }}{{ end }}
+</title>
 
 <!-- ファビコン -->
-<link
-  rel="icon"
-  href="/favicon.ico"
-/>
+<link rel="icon" href="/favicon.ico" />
 
 <!-- Google Fonts: Noto Sans JP -->
 <link
@@ -22,5 +19,15 @@
   rel="stylesheet"
 />
 
-<!-- TailWind CSS -->
-<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+{{ with (templates.Defer (dict "key" "global")) }} {{ with resources.Get
+"css/main.css" }} {{ $opts := dict "minify" (not hugo.IsDevelopment) }} {{ with
+. | css.TailwindCSS $opts }} {{ if hugo.IsDevelopment }}
+<link rel="stylesheet" href="{{ .RelPermalink }}" />
+{{ else }} {{ with . | fingerprint }}
+<link
+  rel="stylesheet"
+  href="{{ .RelPermalink }}"
+  integrity="{{ .Data.Integrity }}"
+  crossorigin="anonymous"
+/>
+{{ end }} {{ end }} {{ end }} {{ end }} {{ end }}
