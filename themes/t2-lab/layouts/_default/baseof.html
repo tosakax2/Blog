@@ -8,25 +8,24 @@
   </head>
 
   <body>
-    <div class="bg-gradient-to-r from-white to-gray-200">
-      <!-- ページ全体のラッパー -->
-      <div class="min-h-screen flex flex-col">
-        <!-- 固定ヘッダー -->
-        <header>{{ partial "header.html" . }}</header>
+    {{ partial "background.html" . }}
+    <!-- ページ全体のラッパー -->
+    <div class="min-h-screen flex flex-col">
+      <!-- 固定ヘッダー -->
+      <header>{{ partial "header.html" . }}</header>
 
-        <!-- footer 用ラッパー -->
-        <div class="flex-1">
-          <!-- コンテンツ全体に余白を設ける -->
-          <div class="mx-auto max-w-2xl mx-auto py-8 px-4">
-            <!-- カードスタイル -->
-            <div class="rounded-2xl p-8 my-8 border border-gray-200">
-              <main>{{ block "main" . }}{{ end }}</main>
-            </div>
+      <!-- footer 用ラッパー -->
+      <div class="flex-1">
+        <!-- コンテンツ全体に余白を設ける -->
+        <div class="mx-auto max-w-2xl mx-auto py-8 px-4">
+          <!-- カードスタイル -->
+          <div class="rounded-2xl p-8 my-8 border border-gray-200">
+            <main>{{ block "main" . }}{{ end }}</main>
           </div>
         </div>
-
-        <footer>{{ partial "footer.html" . }}</footer>
       </div>
+
+      <footer>{{ partial "footer.html" . }}</footer>
     </div>
   </body>
 </html>
