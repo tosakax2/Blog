@@ -6,8 +6,9 @@
   <head>
     {{ partial "head.html" . }}
   </head>
+
   <body>
-    <!-- footer 用ラッパー -->
+    <!-- ページ全体のラッパー -->
     <div class="min-h-screen flex flex-col">
       <!-- 固定ヘッダー -->
       <header>{{ partial "header.html" . }}</header>
@@ -15,7 +16,7 @@
       <!-- footer 用ラッパー -->
       <div class="flex-1">
         <!-- コンテンツ全体に余白を設ける -->
-        <div class="mx-auto max-w-2xl mx-auto py-12 px-4">
+        <div class="mx-auto max-w-2xl mx-auto py-8 px-4">
           <main>{{ block "main" . }}{{ end }}</main>
         </div>
       </div>

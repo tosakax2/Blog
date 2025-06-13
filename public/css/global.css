@@ -1,0 +1,7 @@
+body {
+  color: #222;
+  font-family: "Note Sans JP", "Noto Sans JP", "Meiryo", sans-serif;
+  line-height: 1.5;
+  margin: 1rem;
+  max-width: 768px;
+}
