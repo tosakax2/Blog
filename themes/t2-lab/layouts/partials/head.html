@@ -1,0 +1,17 @@
+<!-- 文字コード -->
+<meta charset="utf-8" />
+
+<!-- ビューポートの設定 -->
+<meta
+  name="viewport"
+  content="width=device-width,initial-scale=1"
+/>
+
+<!-- タイトル -->
+<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+
+<!-- ファビコン -->
+<link
+  rel="icon"
+  href="/favicon.ico"
+/>
