@@ -1,8 +1,24 @@
 @import "tailwindcss";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
-body {
-  @apply font-sans;
+@theme {
+  --color-claude-bg-light: #faf9f5;
+  --color-claude-text-light: #3d3d3a;
+  --color-claude-subtext-light: #73726c;
+  --color-claude-border-light: #bbbbbb;
+  --color-claude-accent-light: #c76648;
+  --color-claude-hover-light: #f5f4ee;
+  --color-claude-focus-light: #f0eee7;
+
+  --color-claude-bg-dark: #262624;
+  --color-claude-text-dark: #c2c0b7;
+  --color-claude-subtext-dark: #9c9a93;
+  --color-claude-border-dark: #65645f;
+  --color-claude-accent-dark: #c76648;
+  --color-claude-hover-dark: #1f1e1d;
+  --color-claude-focus-dark: #141413;
+}
+
+:root {
+  --font-sans: "Noto Sans CJK JP", "Noto Sans JP", ui-sans-serif, system-ui,
+    sans-serif;
 }

@@ -8,7 +8,7 @@
   </head>
 
   <body>
-    <div class="bg-gray-50">
+    <div class="bg-claude-bg-light">
       <!-- ページ全体のラッパー -->
       <div class="min-h-screen flex flex-col">
         <!-- 固定ヘッダー -->
@@ -18,10 +18,7 @@
         <div class="flex-1">
           <!-- コンテンツ全体に余白を設ける -->
           <div class="mx-auto max-w-2xl mx-auto py-8 px-4">
-            <!-- カードスタイル -->
-            <div class="rounded-2xl p-8 my-8 border border-gray-200">
-              <main>{{ block "main" . }}{{ end }}</main>
-            </div>
+            <main>{{ block "main" . }}{{ end }}</main>
           </div>
         </div>
       </div>

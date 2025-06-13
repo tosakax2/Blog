@@ -24,8 +24,10 @@
   href="https://cdn.jsdelivr.net/npm/noto-sans-cjk-jp@1.0.1/index.min.css"
 />
 
-
-<link href="/css/main.css" rel="stylesheet" />
+<link
+  href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap"
+  rel="stylesheet"
+/>
 
 
     
@@ -35,34 +37,45 @@
   </head>
 
   <body>
-    <div class="bg-gray-50">
+    <div class="bg-claude-bg-light">
       
       <div class="min-h-screen flex flex-col">
         
-        <header><div class="fixed top-0 left-0 w-full bg-white border-b border-gray-200 z-50">
+        <header><div
+  class="fixed top-0 left-0 w-full bg-claude-bg-light border-b border-claude-border-light z-50"
+>
   <div class="mx-auto max-w-3xl px-4 py-3 flex items-center justify-between">
-    <h1 class="text-xl font-bold">T2-Lab</h1>
+    <h1 class="text-xl text-claude-text-light font-bold">
+      <a href="/">T2-Lab</a>
+    </h1>
     
     <nav>
       <ul class="flex space-x-4 text-sm font-medium">
         <li>
           <a
+            href="/"
+            class="text-claude-text-light hover:text-claude-accent-light"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a
             href="/posts/"
-            class="text-gray-700 hover:text-blue-600"
+            class="text-claude-text-light hover:text-claude-accent-light"
             >Posts</a
           >
         </li>
         <li>
           <a
             href="/tags/"
-            class="text-gray-700 hover:text-blue-600"
+            class="text-claude-text-light hover:text-claude-accent-light"
             >Tags</a
           >
         </li>
         <li>
           <a
             href="/categories/"
-            class="text-gray-700 hover:text-blue-600"
+            class="text-claude-text-light hover:text-claude-accent-light"
             >Categories</a
           >
         </li>
@@ -78,43 +91,39 @@
         <div class="flex-1">
           
           <div class="mx-auto max-w-2xl mx-auto py-8 px-4">
-            
-            <div class="rounded-2xl p-8 my-8 border border-gray-200">
-              <main>
+            <main>
 <article>
-  <h1 class="text-3xl font-bold mb-4">Post 3</h1>
+  <h1 class="text-3xl text-claude-text-light font-bold mb-4">Post 3</h1>
   
-  <time
-    class="block text-gray-400 text-sm mb-4"
-    datetime="2023-03-15 11:00:00 -0700 -0700"
+  <time class="block text-claude-subtext-light text-sm mb-4" datetime="2023-03-15 11:00:00 -0700 -0700"
     >2023-03-15</time
   >
     
   <div class="mb-4">
-    <span class="text-xs text-gray-400 mr-2">Tags:</span>
+    <span class="text-xs text-claude-subtext-light mr-2">Tags:</span>
     
     <a
       href="/tags/red/"
-      class="text-xs inline-block rounded bg-gray-100 px-2 py-1 mr-1 hover:bg-gray-200"
+      class="text-xs inline-block rounded bg-stone-200 text-stone-700 px-2 py-1 mr-1 hover:bg-stone-300"
       >red</a
     >
     
     <a
       href="/tags/green/"
-      class="text-xs inline-block rounded bg-gray-100 px-2 py-1 mr-1 hover:bg-gray-200"
+      class="text-xs inline-block rounded bg-stone-200 text-stone-700 px-2 py-1 mr-1 hover:bg-stone-300"
       >green</a
     >
     
     <a
       href="/tags/blue/"
-      class="text-xs inline-block rounded bg-gray-100 px-2 py-1 mr-1 hover:bg-gray-200"
+      class="text-xs inline-block rounded bg-stone-200 text-stone-700 px-2 py-1 mr-1 hover:bg-stone-300"
       >blue</a
     >
     
   </div>
   
 
-  <div class="border-b border-gray-200 mb-6"></div>
+  <div class="border-b border-claude-border-light mb-6"></div>
 
   <section><p>Occaecat aliqua consequat laborum ut ex aute aliqua culpa quis irure esse magna dolore quis. Proident fugiat labore eu laboris officia Lorem enim. Ipsum occaecat cillum ut tempor id sint aliqua incididunt nisi incididunt reprehenderit. Voluptate ad minim sint est aute aliquip esse occaecat tempor officia qui sunt. Aute ex ipsum id ut in est velit est laborum incididunt. Aliqua qui id do esse sunt eiusmod id deserunt eu nostrud aute sit ipsum. Deserunt esse cillum Lorem non magna adipisicing mollit amet consequat.</p>
 <p><img src="bryce-canyon.jpg" alt="Bryce Canyon National Park"></p>
@@ -122,12 +131,13 @@
 </section>
 </article>
 </main>
-            </div>
           </div>
         </div>
       </div>
 
-      <footer><div class="text-center text-gray-400 py-4 text-sm border-t border-gray-200">
+      <footer><div
+  class="text-center text-claude-subtext-light py-4 text-sm border-t border-claude-border-light"
+>
   <p>Copyright 2025. All rights reserved.</p>
 </div>
 </footer>

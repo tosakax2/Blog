@@ -1,37 +1,35 @@
 {{ define "main" }}
 <article>
-  <h1 class="text-3xl font-bold mb-4">{{ .Title }}</h1>
+  <h1 class="text-3xl text-claude-text-light font-bold mb-4">{{ .Title }}</h1>
   {{ with .Date }}
-  <time
-    class="block text-gray-400 text-sm mb-4"
-    datetime="{{ . }}"
+  <time class="block text-claude-subtext-light text-sm mb-4" datetime="{{ . }}"
     >{{ .Format "2006-01-02" }}</time
   >
   {{ end }} {{ if .Params.categories }}
   <div class="mb-4">
-    <span class="text-xs text-gray-400 mr-2">Categories:</span>
+    <span class="text-xs text-claude-subtext-light mr-2">Categories:</span>
     {{ range .Params.categories }}
     <a
       href="/categories/{{ . | urlize }}/"
-      class="text-xs inline-block rounded bg-gray-100 px-2 py-1 mr-1 hover:bg-gray-200"
+      class="text-xs inline-block rounded bg-stone-200 px-2 py-1 mr-1 hover:bg-stone-300"
       >{{ . }}</a
     >
     {{ end }}
   </div>
   {{ end }} {{ if .Params.tags }}
   <div class="mb-4">
-    <span class="text-xs text-gray-400 mr-2">Tags:</span>
+    <span class="text-xs text-claude-subtext-light mr-2">Tags:</span>
     {{ range .Params.tags }}
     <a
       href="/tags/{{ . | urlize }}/"
-      class="text-xs inline-block rounded bg-gray-100 px-2 py-1 mr-1 hover:bg-gray-200"
+      class="text-xs inline-block rounded bg-stone-200 text-stone-700 px-2 py-1 mr-1 hover:bg-stone-300"
       >{{ . }}</a
     >
     {{ end }}
   </div>
   {{ end }}
 
-  <div class="border-b border-gray-200 mb-6"></div>
+  <div class="border-b border-claude-border-light mb-6"></div>
 
   <section>{{ .Content }}</section>
 </article>

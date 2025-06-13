@@ -7,17 +7,36 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-red-400: oklch(70.4% 0.191 22.216);
+    --color-amber-50: oklch(98.7% 0.022 95.277);
+    --color-amber-100: oklch(96.2% 0.059 95.617);
     --color-green-100: oklch(96.2% 0.044 156.743);
+    --color-green-200: oklch(92.5% 0.084 155.995);
     --color-green-700: oklch(52.7% 0.154 150.069);
+    --color-blue-50: oklch(97% 0.014 254.604);
     --color-blue-300: oklch(80.9% 0.105 251.813);
     --color-blue-600: oklch(54.6% 0.245 262.881);
     --color-blue-700: oklch(48.8% 0.243 264.376);
+    --color-rose-50: oklch(96.9% 0.015 12.422);
+    --color-rose-100: oklch(94.1% 0.03 12.58);
+    --color-rose-200: oklch(89.2% 0.058 10.001);
+    --color-rose-300: oklch(81% 0.117 11.638);
+    --color-rose-400: oklch(71.2% 0.194 13.428);
+    --color-rose-500: oklch(64.5% 0.246 16.439);
     --color-gray-50: oklch(98.5% 0.002 247.839);
     --color-gray-100: oklch(96.7% 0.003 264.542);
     --color-gray-200: oklch(92.8% 0.006 264.531);
     --color-gray-400: oklch(70.7% 0.022 261.325);
     --color-gray-500: oklch(55.1% 0.027 264.364);
     --color-gray-700: oklch(37.3% 0.034 259.733);
+    --color-neutral-50: oklch(98.5% 0 0);
+    --color-stone-50: oklch(98.5% 0.001 106.423);
+    --color-stone-100: oklch(97% 0.001 106.424);
+    --color-stone-200: oklch(92.3% 0.003 48.717);
+    --color-stone-300: oklch(86.9% 0.005 56.366);
+    --color-stone-400: oklch(70.9% 0.01 56.259);
+    --color-stone-500: oklch(55.3% 0.013 58.071);
+    --color-stone-700: oklch(37.4% 0.01 67.558);
     --color-white: #fff;
     --spacing: 0.25rem;
     --container-2xl: 42rem;
@@ -33,11 +52,19 @@
     --font-weight-medium: 500;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
+    --radius-xl: 0.75rem;
     --radius-2xl: 1rem;
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
+    --color-claude-bg-light: #faf9f5;
+    --color-claude-text-light: #3d3d3a;
+    --color-claude-subtext-light: #73726c;
+    --color-claude-border-light: #bbbbbb;
+    --color-claude-accent-light: #c76648;
+    --color-claude-hover-light: #f5f4ee;
+    --color-claude-focus-light: #f0eee7;
   }
 }
 @layer base {
@@ -296,11 +323,17 @@
     border-bottom-style: var(--tw-border-style);
     border-bottom-width: 1px;
   }
+  .border-claude-border-light {
+    border-color: var(--color-claude-border-light);
+  }
   .border-gray-100 {
     border-color: var(--color-gray-100);
   }
   .border-gray-200 {
     border-color: var(--color-gray-200);
+  }
+  .bg-claude-bg-light {
+    background-color: var(--color-claude-bg-light);
   }
   .bg-gray-50 {
     background-color: var(--color-gray-50);
@@ -313,6 +346,12 @@
   }
   .bg-green-100 {
     background-color: var(--color-green-100);
+  }
+  .bg-green-200 {
+    background-color: var(--color-green-200);
+  }
+  .bg-stone-200 {
+    background-color: var(--color-stone-200);
   }
   .bg-white {
     background-color: var(--color-white);
@@ -378,6 +417,15 @@
   .text-blue-700 {
     color: var(--color-blue-700);
   }
+  .text-claude-accent-light {
+    color: var(--color-claude-accent-light);
+  }
+  .text-claude-subtext-light {
+    color: var(--color-claude-subtext-light);
+  }
+  .text-claude-text-light {
+    color: var(--color-claude-text-light);
+  }
   .text-gray-400 {
     color: var(--color-gray-400);
   }
@@ -389,6 +437,9 @@
   }
   .text-green-700 {
     color: var(--color-green-700);
+  }
+  .text-stone-700 {
+    color: var(--color-stone-700);
   }
   .shadow {
     --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
@@ -410,6 +461,13 @@
       }
     }
   }
+  .hover\:bg-claude-hover-light {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-claude-hover-light);
+      }
+    }
+  }
   .hover\:bg-gray-200 {
     &:hover {
       @media (hover: hover) {
@@ -417,10 +475,24 @@
       }
     }
   }
+  .hover\:bg-stone-300 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-stone-300);
+      }
+    }
+  }
   .hover\:text-blue-600 {
     &:hover {
       @media (hover: hover) {
         color: var(--color-blue-600);
+      }
+    }
+  }
+  .hover\:text-claude-accent-light {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-claude-accent-light);
       }
     }
   }
@@ -444,8 +516,9 @@
     }
   }
 }
-body {
-  font-family: var(--font-sans);
+:root {
+  --font-sans: "Noto Sans CJK JP", "Noto Sans JP", ui-sans-serif, system-ui,
+    sans-serif;
 }
 @property --tw-space-y-reverse {
   syntax: "*";
