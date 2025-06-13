@@ -17,7 +17,9 @@
       <div class="flex-1">
         <!-- コンテンツ全体に余白を設ける -->
         <div class="mx-auto max-w-2xl mx-auto py-8 px-4">
-          <main>{{ block "main" . }}{{ end }}</main>
+          <div class="rounded-2xl p-8 my-8 border border-gray-200">
+            <main>{{ block "main" . }}{{ end }}</main>
+          </div>
         </div>
       </div>
 

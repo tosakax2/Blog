@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ネタ記事 on T2-Lab</title>
+    <link>http://localhost:1313/tags/%E3%83%8D%E3%82%BF%E8%A8%98%E4%BA%8B/</link>
+    <description>Recent content in ネタ記事 on T2-Lab</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Fri, 13 Jun 2025 15:51:15 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/%E3%83%8D%E3%82%BF%E8%A8%98%E4%BA%8B/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>人間工学と椅子の歴史に関する一考察</title>
+      <link>http://localhost:1313/posts/%E4%BA%BA%E9%96%93%E5%B7%A5%E5%AD%A6%E3%81%A8%E6%A4%85%E5%AD%90%E3%81%AE%E6%AD%B4%E5%8F%B2%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E4%B8%80%E8%80%83%E5%AF%9F/</link>
+      <pubDate>Fri, 13 Jun 2025 15:51:15 +0900</pubDate>
+      <guid>http://localhost:1313/posts/%E4%BA%BA%E9%96%93%E5%B7%A5%E5%AD%A6%E3%81%A8%E6%A4%85%E5%AD%90%E3%81%AE%E6%AD%B4%E5%8F%B2%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E4%B8%80%E8%80%83%E5%AF%9F/</guid>
+      <description>&lt;p&gt;現代社会において、人間工学（エルゴノミクス）は椅子の設計に多大な影響を与えてきた。しかし、そもそも人間はいつから椅子に座るようになったのだろうか。&lt;/p&gt;&#xA;&lt;p&gt;古代エジプトの壁画には、王様らしき人物が椅子に座っている様子が描かれている。これを鑑みるに、椅子は王様専用の高級品であった可能性が高い。庶民は床に直接座っていたと考えられているが、一部研究では「庶民用の椅子は、存在したが誰も座らなかった」説もある。理由は不明だが、もしかすると座るとすぐ壊れる設計だったのかもしれない。&lt;/p&gt;&#xA;&lt;p&gt;現代のオフィスチェアは、回転し、昇降し、リクライニングまでする。しかしこれらの機能の 90%は、実際には暇な会議中に遊ぶために使われているという調査結果もある（※筆者調べ）。&lt;/p&gt;&#xA;&lt;p&gt;椅子の歴史を振り返ると、やはり人間は「座りたかった」という強い意志に突き動かされて進化してきたのだと感じる。ただし最近はスタンディングデスクが流行しており、人類の座りたい本能は今後どうなってしまうのか、注意深く見守る必要がある。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

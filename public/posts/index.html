@@ -23,17 +23,62 @@
 />
 
 
+<link
+  href="/css/main.css"
+  rel="stylesheet"
+/>
+
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap"
+  rel="stylesheet"
+/>
+
+
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
   </head>
+
   <body>
     
     <div class="min-h-screen flex flex-col">
       
       <header><div class="fixed top-0 left-0 w-full bg-white border-b border-gray-200 z-50">
-  <div class="mx-auto max-w-3xl px-4 py-3 flex items-center">
+  <div class="mx-auto max-w-3xl px-4 py-3 flex items-center justify-between">
     <h1 class="text-xl font-bold">T2-Lab</h1>
     
+    <nav>
+      <ul class="flex space-x-4 text-sm font-medium">
+        <li>
+          <a
+            href="/"
+            class="text-gray-700 hover:text-blue-600"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a
+            href="/posts/"
+            class="text-gray-700 hover:text-blue-600"
+            >Posts</a
+          >
+        </li>
+        <li>
+          <a
+            href="/tags/"
+            class="text-gray-700 hover:text-blue-600"
+            >Tags</a
+          >
+        </li>
+        <li>
+          <a
+            href="/categories/"
+            class="text-gray-700 hover:text-blue-600"
+            >Categories</a
+          >
+        </li>
+      </ul>
+    </nav>
   </div>
 </div>
 
@@ -43,67 +88,103 @@
       
       <div class="flex-1">
         
-        <div class="mx-auto max-w-2xl mx-auto py-12 px-4">
-          <main>
-<div class="max-w-2xl mx-auto py-8 px-4">
-  <h1 class="text-2xl font-bold mb-6">Posts</h1>
-  
-  <div class="prose mb-8"><p>Tempor est exercitation ad qui pariatur quis adipisicing aliquip nisi ea consequat ipsum occaecat. Nostrud consequat ullamco laboris fugiat esse esse adipisicing velit laborum ipsum incididunt ut enim. Dolor pariatur nulla quis fugiat dolore excepteur. Aliquip ad quis aliqua enim do consequat.</p>
-</div>
-  
+        <div class="mx-auto max-w-2xl mx-auto py-8 px-4">
+          <div class="rounded-2xl p-8 my-8 border border-gray-200">
+            <main>
+<h1 class="text-3xl font-bold mb-6">Posts</h1>
 
-  <ul class="space-y-6">
-    
-    <li class="border-b pb-4">
-      <a
-        href="/posts/post-3/"
-        class="text-xl text-blue-700 font-semibold hover:underline"
-      >
-        Post 3
-      </a>
-      <div class="text-gray-500 text-sm mb-2">
-        2023-03-15 
-        <span class="ml-2"> <span class="inline-block bg-gray-200 text-gray-700 px-2 py-0.5 rounded mr-1 text-xs">#red</span><span class="inline-block bg-gray-200 text-gray-700 px-2 py-0.5 rounded mr-1 text-xs">#green</span><span class="inline-block bg-gray-200 text-gray-700 px-2 py-0.5 rounded mr-1 text-xs">#blue</span> </span>
-        
+
+<ul class="space-y-6">
+  
+  <li>
+    <a
+      href="/posts/%E6%9C%80%E5%BC%B7%E3%81%AEtodo%E3%83%AA%E3%82%B9%E3%83%88%E7%AE%A1%E7%90%86%E6%B3%95%E3%81%A8%E3%81%AF/"
+      class="block bg-white rounded-2xl shadow p-6 hover:shadow-lg transition-shadow border border-gray-100 group focus:ring-2 focus:ring-blue-300 outline-none"
+      tabindex="0"
+    >
+      <div>
+        <div class="text-xl text-blue-700 font-semibold group-hover:underline">最強のToDoリスト管理法とは</div>
+        <div class="text-gray-500 text-sm mb-2 flex flex-wrap items-center gap-x-2 mt-2">
+          <span>2025-06-13</span>
+           
+        </div>
       </div>
-      <p class="text-gray-700"><p>Occaecat aliqua consequat laborum ut ex aute aliqua culpa quis irure esse magna dolore quis. Proident fugiat labore eu laboris officia Lorem enim. Ipsum occaecat cillum ut tempor id sint aliqua incididunt nisi incididunt reprehenderit. Voluptate ad minim sint est aute aliquip esse occaecat tempor officia qui sunt. Aute ex ipsum id ut in est velit est laborum incididunt. Aliqua qui id do esse sunt eiusmod id deserunt eu nostrud aute sit ipsum. Deserunt esse cillum Lorem non magna adipisicing mollit amet consequat.</p></p>
-    </li>
-    
-    <li class="border-b pb-4">
-      <a
-        href="/posts/post-2/"
-        class="text-xl text-blue-700 font-semibold hover:underline"
-      >
-        Post 2
-      </a>
-      <div class="text-gray-500 text-sm mb-2">
-        2023-02-15 
-        <span class="ml-2"> <span class="inline-block bg-gray-200 text-gray-700 px-2 py-0.5 rounded mr-1 text-xs">#red</span><span class="inline-block bg-gray-200 text-gray-700 px-2 py-0.5 rounded mr-1 text-xs">#green</span> </span>
-        
+    </a>
+  </li>
+  
+  <li>
+    <a
+      href="/posts/%E6%9C%9D%E9%A3%9F%E3%81%AF%E6%9C%AC%E5%BD%93%E3%81%AB%E4%B8%80%E6%97%A5%E3%81%AE%E5%A7%8B%E3%81%BE%E3%82%8A%E3%81%8B/"
+      class="block bg-white rounded-2xl shadow p-6 hover:shadow-lg transition-shadow border border-gray-100 group focus:ring-2 focus:ring-blue-300 outline-none"
+      tabindex="0"
+    >
+      <div>
+        <div class="text-xl text-blue-700 font-semibold group-hover:underline">朝食は本当に一日の始まりか？</div>
+        <div class="text-gray-500 text-sm mb-2 flex flex-wrap items-center gap-x-2 mt-2">
+          <span>2025-06-13</span>
+           
+        </div>
       </div>
-      <p class="text-gray-700"><p>Anim eiusmod irure incididunt sint cupidatat. Incididunt irure irure irure nisi ipsum do ut quis fugiat consectetur proident cupidatat incididunt cillum. Dolore voluptate occaecat qui mollit laborum ullamco et. Ipsum laboris officia anim laboris culpa eiusmod ex magna ex cupidatat anim ipsum aute. Mollit aliquip occaecat qui sunt velit ut cupidatat reprehenderit enim sunt laborum. Velit veniam in officia nulla adipisicing ut duis officia.</p>
-<p>Exercitation voluptate irure in irure tempor mollit Lorem nostrud ad officia. Velit id fugiat occaecat do tempor. Sit officia Lorem aliquip eu deserunt consectetur. Aute proident deserunt in nulla aliquip dolore ipsum Lorem ut cupidatat consectetur sit sint laborum. Esse cupidatat sit sint sunt tempor exercitation deserunt. Labore dolor duis laborum est do nisi ut veniam dolor et nostrud nostrud.</p></p>
-    </li>
-    
-    <li class="border-b pb-4">
-      <a
-        href="/posts/post-1/"
-        class="text-xl text-blue-700 font-semibold hover:underline"
-      >
-        Post 1
-      </a>
-      <div class="text-gray-500 text-sm mb-2">
-        2023-01-15 
-        <span class="ml-2"> <span class="inline-block bg-gray-200 text-gray-700 px-2 py-0.5 rounded mr-1 text-xs">#red</span> </span>
-        
+    </a>
+  </li>
+  
+  <li>
+    <a
+      href="/posts/%E4%BA%BA%E9%96%93%E5%B7%A5%E5%AD%A6%E3%81%A8%E6%A4%85%E5%AD%90%E3%81%AE%E6%AD%B4%E5%8F%B2%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E4%B8%80%E8%80%83%E5%AF%9F/"
+      class="block bg-white rounded-2xl shadow p-6 hover:shadow-lg transition-shadow border border-gray-100 group focus:ring-2 focus:ring-blue-300 outline-none"
+      tabindex="0"
+    >
+      <div>
+        <div class="text-xl text-blue-700 font-semibold group-hover:underline">人間工学と椅子の歴史に関する一考察</div>
+        <div class="text-gray-500 text-sm mb-2 flex flex-wrap items-center gap-x-2 mt-2">
+          <span>2025-06-13</span>
+          
+          <span>
+            
+            <span class="inline-block bg-green-100 text-green-700 px-2 py-0.5 rounded mr-1 text-xs">[雑記]</span>
+            
+          </span>
+           
+          <span>
+            
+            <span class="inline-block bg-gray-200 text-gray-700 px-2 py-0.5 rounded mr-1 text-xs">#ネタ記事</span>
+            
+          </span>
+          
+        </div>
       </div>
-      <p class="text-gray-700"><p>Tempor proident minim aliquip reprehenderit dolor et ad anim Lorem duis sint eiusmod. Labore ut ea duis dolor. Incididunt consectetur proident qui occaecat incididunt do nisi Lorem. Tempor do laborum elit laboris excepteur eiusmod do. Eiusmod nisi excepteur ut amet pariatur adipisicing Lorem.</p>
-<p>Occaecat nulla excepteur dolore excepteur duis eiusmod ullamco officia anim in voluptate ea occaecat officia. Cillum sint esse velit ea officia minim fugiat. Elit ea esse id aliquip pariatur cupidatat id duis minim incididunt ea ea. Anim ut duis sunt nisi. Culpa cillum sit voluptate voluptate eiusmod dolor. Enim nisi Lorem ipsum irure est excepteur voluptate eu in enim nisi. Nostrud ipsum Lorem anim sint labore consequat do.</p></p>
-    </li>
-    
-  </ul>
-</div>
+    </a>
+  </li>
+  
+  <li>
+    <a
+      href="/posts/post-3/"
+      class="block bg-white rounded-2xl shadow p-6 hover:shadow-lg transition-shadow border border-gray-100 group focus:ring-2 focus:ring-blue-300 outline-none"
+      tabindex="0"
+    >
+      <div>
+        <div class="text-xl text-blue-700 font-semibold group-hover:underline">Post 3</div>
+        <div class="text-gray-500 text-sm mb-2 flex flex-wrap items-center gap-x-2 mt-2">
+          <span>2023-03-15</span>
+           
+          <span>
+            
+            <span class="inline-block bg-gray-200 text-gray-700 px-2 py-0.5 rounded mr-1 text-xs">#red</span>
+            
+            <span class="inline-block bg-gray-200 text-gray-700 px-2 py-0.5 rounded mr-1 text-xs">#green</span>
+            
+            <span class="inline-block bg-gray-200 text-gray-700 px-2 py-0.5 rounded mr-1 text-xs">#blue</span>
+            
+          </span>
+          
+        </div>
+      </div>
+    </a>
+  </li>
+  
+</ul>
 </main>
+          </div>
         </div>
       </div>
 

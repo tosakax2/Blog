@@ -23,17 +23,62 @@
 />
 
 
+<link
+  href="/css/main.css"
+  rel="stylesheet"
+/>
+
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap"
+  rel="stylesheet"
+/>
+
+
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
   </head>
+
   <body>
     
     <div class="min-h-screen flex flex-col">
       
       <header><div class="fixed top-0 left-0 w-full bg-white border-b border-gray-200 z-50">
-  <div class="mx-auto max-w-3xl px-4 py-3 flex items-center">
+  <div class="mx-auto max-w-3xl px-4 py-3 flex items-center justify-between">
     <h1 class="text-xl font-bold">T2-Lab</h1>
     
+    <nav>
+      <ul class="flex space-x-4 text-sm font-medium">
+        <li>
+          <a
+            href="/"
+            class="text-gray-700 hover:text-blue-600"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a
+            href="/posts/"
+            class="text-gray-700 hover:text-blue-600"
+            >Posts</a
+          >
+        </li>
+        <li>
+          <a
+            href="/tags/"
+            class="text-gray-700 hover:text-blue-600"
+            >Tags</a
+          >
+        </li>
+        <li>
+          <a
+            href="/categories/"
+            class="text-gray-700 hover:text-blue-600"
+            >Categories</a
+          >
+        </li>
+      </ul>
+    </nav>
   </div>
 </div>
 
@@ -43,32 +88,41 @@
       
       <div class="flex-1">
         
-        <div class="mx-auto max-w-2xl mx-auto py-12 px-4">
-          <main>
-<div class="max-w-2xl mx-auto py-8 px-4">
-  <h1 class="text-2xl font-bold mb-6">Blue</h1>
-  
+        <div class="mx-auto max-w-2xl mx-auto py-8 px-4">
+          <div class="rounded-2xl p-8 my-8 border border-gray-200">
+            <main>
+<h1 class="text-3xl font-bold mb-6">Blue</h1>
 
-  <ul class="space-y-6">
-    
-    <li class="border-b pb-4">
-      <a
-        href="/posts/post-3/"
-        class="text-xl text-blue-700 font-semibold hover:underline"
-      >
-        Post 3
-      </a>
-      <div class="text-gray-500 text-sm mb-2">
-        2023-03-15 
-        <span class="ml-2"> <span class="inline-block bg-gray-200 text-gray-700 px-2 py-0.5 rounded mr-1 text-xs">#red</span><span class="inline-block bg-gray-200 text-gray-700 px-2 py-0.5 rounded mr-1 text-xs">#green</span><span class="inline-block bg-gray-200 text-gray-700 px-2 py-0.5 rounded mr-1 text-xs">#blue</span> </span>
+
+<ul class="space-y-6">
+  
+  <li class="border-b pb-4">
+    <a
+      href="/posts/post-3/"
+      class="text-xl text-blue-700 font-semibold hover:underline"
+    >
+      Post 3
+    </a>
+    <div class="text-gray-500 text-sm mb-2 flex flex-wrap items-center gap-x-2">
+      <span>2023-03-15</span>
+       
+      <span>
         
-      </div>
-      <p class="text-gray-700"><p>Occaecat aliqua consequat laborum ut ex aute aliqua culpa quis irure esse magna dolore quis. Proident fugiat labore eu laboris officia Lorem enim. Ipsum occaecat cillum ut tempor id sint aliqua incididunt nisi incididunt reprehenderit. Voluptate ad minim sint est aute aliquip esse occaecat tempor officia qui sunt. Aute ex ipsum id ut in est velit est laborum incididunt. Aliqua qui id do esse sunt eiusmod id deserunt eu nostrud aute sit ipsum. Deserunt esse cillum Lorem non magna adipisicing mollit amet consequat.</p></p>
-    </li>
-    
-  </ul>
-</div>
+        <span class="inline-block bg-gray-200 text-gray-700 px-2 py-0.5 rounded mr-1 text-xs">#red</span>
+        
+        <span class="inline-block bg-gray-200 text-gray-700 px-2 py-0.5 rounded mr-1 text-xs">#green</span>
+        
+        <span class="inline-block bg-gray-200 text-gray-700 px-2 py-0.5 rounded mr-1 text-xs">#blue</span>
+        
+      </span>
+      
+    </div>
+    <p class="text-gray-700"><p>Occaecat aliqua consequat laborum ut ex aute aliqua culpa quis irure esse magna dolore quis. Proident fugiat labore eu laboris officia Lorem enim. Ipsum occaecat cillum ut tempor id sint aliqua incididunt nisi incididunt reprehenderit. Voluptate ad minim sint est aute aliquip esse occaecat tempor officia qui sunt. Aute ex ipsum id ut in est velit est laborum incididunt. Aliqua qui id do esse sunt eiusmod id deserunt eu nostrud aute sit ipsum. Deserunt esse cillum Lorem non magna adipisicing mollit amet consequat.</p></p>
+  </li>
+  
+</ul>
 </main>
+          </div>
         </div>
       </div>
 

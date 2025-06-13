@@ -1,27 +1,38 @@
 {{ define "main" }}
-<div class="max-w-2xl mx-auto py-8 px-4">
-  <h1 class="text-2xl font-bold mb-6">{{ .Title }}</h1>
-  {{ if .Content }}
-  <div class="prose mb-8">{{ .Content }}</div>
-  {{ end }}
+<h1 class="text-3xl font-bold mb-6">{{ .Title }}</h1>
+{{ if .Content }}
+<div class="prose mb-8">{{ .Content }}</div>
+{{ end }}
 
-  <ul class="space-y-6">
-    {{ range .Pages }}
-    <li class="border-b pb-4">
-      <a
-        href="{{ .RelPermalink }}"
-        class="text-xl text-blue-700 font-semibold hover:underline"
-      >
-        {{ .Title }}
-      </a>
-      <div class="text-gray-500 text-sm mb-2">
-        {{ .Date.Format "2006-01-02" }} {{ with .Params.tags }}
-        <span class="ml-2"> {{ range . }}<span class="inline-block bg-gray-200 text-gray-700 px-2 py-0.5 rounded mr-1 text-xs">#{{ . }}</span>{{ end }} </span>
-        {{ end }}
+<ul class="space-y-6">
+  {{ range .Pages }}
+  <li>
+    <a
+      href="{{ .RelPermalink }}"
+      class="block bg-white rounded-2xl shadow p-6 hover:shadow-lg transition-shadow border border-gray-100 group focus:ring-2 focus:ring-blue-300 outline-none"
+      tabindex="0"
+    >
+      <div>
+        <div class="text-xl text-blue-700 font-semibold group-hover:underline">{{ .Title }}</div>
+        <div class="text-gray-500 text-sm mb-2 flex flex-wrap items-center gap-x-2 mt-2">
+          <span>{{ .Date.Format "2006-01-02" }}</span>
+          {{ with .Params.categories }}
+          <span>
+            {{ range . }}
+            <span class="inline-block bg-green-100 text-green-700 px-2 py-0.5 rounded mr-1 text-xs">[{{ . }}]</span>
+            {{ end }}
+          </span>
+          {{ end }} {{ with .Params.tags }}
+          <span>
+            {{ range . }}
+            <span class="inline-block bg-gray-200 text-gray-700 px-2 py-0.5 rounded mr-1 text-xs">#{{ . }}</span>
+            {{ end }}
+          </span>
+          {{ end }}
+        </div>
       </div>
-      <p class="text-gray-700">{{ .Summary }}</p>
-    </li>
-    {{ end }}
-  </ul>
-</div>
+    </a>
+  </li>
+  {{ end }}
+</ul>
 {{ end }}
