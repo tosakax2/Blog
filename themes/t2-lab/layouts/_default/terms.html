@@ -3,25 +3,13 @@
   {{ .Title }}
 </h1>
 <div class="tag-cloud">
-  {{ range $tag, $pages := .Site.Taxonomies.tags }}
-    {{ $count := len $pages }}
-    {{ $class := "" }}
-    {{ if lt $count 2 }}
-      {{ $class = "text-xs" }}
-    {{ else if lt $count 4 }}
-      {{ $class = "text-sm" }}
-    {{ else if lt $count 6 }}
-      {{ $class = "text-base" }}
-    {{ else if lt $count 8 }}
-      {{ $class = "text-lg" }}
-    {{ else if lt $count 10 }}
-      {{ $class = "text-xl" }}
-    {{ else }}
-      {{ $class = "text-2xl" }}
-    {{ end }}
-    <a href="/tags/{{ $tag | urlize }}/" class="{{ $class }}">
-      {{ $tag }}
-    </a>
+  {{ range $tag, $pages := .Site.Taxonomies.tags }} {{ $count := len $pages }}
+  {{ $class := "" }} {{ if lt $count 2 }} {{ $class = "text-xs" }} {{ else if lt
+  $count 4 }} {{ $class = "text-sm" }} {{ else if lt $count 6 }} {{ $class =
+  "text-base" }} {{ else if lt $count 8 }} {{ $class = "text-lg" }} {{ else if
+  lt $count 10 }} {{ $class = "text-xl" }} {{ else }} {{ $class = "text-2xl" }}
+  {{ end }}
+  <a href="/tags/{{ $tag | urlize }}/" class="{{ $class }}"> {{ $tag }} </a>
   {{ end }}
 </div>
 {{ end }}
