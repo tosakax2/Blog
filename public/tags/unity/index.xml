@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tech on T2-Lab</title>
-    <link>http://localhost:1313/categories/tech/</link>
-    <description>Recent content in Tech on T2-Lab</description>
+    <title>Unity on T2-Lab</title>
+    <link>http://localhost:1313/tags/unity/</link>
+    <description>Recent content in Unity on T2-Lab</description>
     <generator>Hugo</generator>
     <language>ja</language>
     <lastBuildDate>Fri, 06 Dec 2024 15:53:22 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/tech/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/unity/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Unityにおけるジンバルロックの解説</title>
       <link>http://localhost:1313/posts/unity%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8B%E3%82%B8%E3%83%B3%E3%83%90%E3%83%AB%E3%83%AD%E3%83%83%E3%82%AF%E3%81%AE%E8%A7%A3%E8%AA%AC/</link>

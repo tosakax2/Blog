@@ -30,6 +30,16 @@
 />
 
 
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css"
+/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>
+  hljs.highlightAll();
+</script>
+
+
     
 <link rel="stylesheet" href="/css/main.css" />
    
@@ -99,21 +109,21 @@
   
   <li>
     <a
-      href="/posts/markdown%E3%82%B7%E3%83%B3%E3%82%BF%E3%83%83%E3%82%AF%E3%82%B9%E4%B8%80%E8%A6%A7/"
-      class="block bg-claude-bg-light hover:bg-claude-hover-light rounded-2xl p-6 border border-claude-border-light outline-none"
+      href="/posts/unity%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8B%E3%82%B8%E3%83%B3%E3%83%90%E3%83%AB%E3%83%AD%E3%83%83%E3%82%AF%E3%81%AE%E8%A7%A3%E8%AA%AC/"
+      class="block bg-claude-bg-light transition hover:bg-claude-hover-light rounded-2xl p-6 border border-claude-border-light outline-none"
       tabindex="0"
     >
       <div>
         <div
           class="text-claude-subtext-light text-sm flex flex-wrap items-center gap-x-2 mb-3"
         >
-          <span>2025-06-14</span>
+          <span>2024-12-06</span>
           
           <span>
             
             <span
               class="inline-block bg-green-200 text-green-700 px-2 py-0.5 rounded mr-1 text-xs"
-              >[Tech]</span
+              >Tech</span
             >
             
           </span>
@@ -122,14 +132,19 @@
             
             <span
               class="inline-block bg-stone-200 text-stone-700 px-2 py-0.5 rounded mr-1 text-xs"
-              >#Sample</span
+              >#Unity</span
+            >
+            
+            <span
+              class="inline-block bg-stone-200 text-stone-700 px-2 py-0.5 rounded mr-1 text-xs"
+              >#ジンバルロック</span
             >
             
           </span>
           
         </div>
         <div class="text-xl text-claude-accent-light font-semibold">
-          Markdownシンタックス一覧
+          Unityにおけるジンバルロックの解説
         </div>
       </div>
     </a>
@@ -146,6 +161,28 @@
 >
   <p>Copyright 2025. All rights reserved.</p>
 </div>
+
+<script>
+  document.querySelectorAll("pre code").forEach((block) => {
+    const btn = document.createElement("button");
+    btn.innerText = "Copy";
+    btn.className =
+      "absolute top-2 right-2 bg-gray-700 text-white text-xs px-2 py-1 rounded hover:bg-gray-600";
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "relative group";
+    block.parentNode.replaceWith(wrapper);
+    wrapper.appendChild(block.parentNode);
+    wrapper.appendChild(btn);
+
+    btn.addEventListener("click", () => {
+      navigator.clipboard.writeText(block.innerText).then(() => {
+        btn.innerText = "Copied!";
+        setTimeout(() => (btn.innerText = "Copy"), 1000);
+      });
+    });
+  });
+</script>
 </footer>
     </div>
   </body>

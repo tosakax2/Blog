@@ -30,6 +30,16 @@
 />
 
 
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css"
+/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>
+  hljs.highlightAll();
+</script>
+
+
     
 <link rel="stylesheet" href="/css/main.css" />
    
@@ -100,7 +110,7 @@
   <li>
     <a
       href="/posts/post-3/"
-      class="block bg-claude-bg-light hover:bg-claude-hover-light rounded-2xl p-6 border border-claude-border-light outline-none"
+      class="block bg-claude-bg-light transition hover:bg-claude-hover-light rounded-2xl p-6 border border-claude-border-light outline-none"
       tabindex="0"
     >
       <div>
@@ -147,6 +157,28 @@
 >
   <p>Copyright 2025. All rights reserved.</p>
 </div>
+
+<script>
+  document.querySelectorAll("pre code").forEach((block) => {
+    const btn = document.createElement("button");
+    btn.innerText = "Copy";
+    btn.className =
+      "absolute top-2 right-2 bg-gray-700 text-white text-xs px-2 py-1 rounded hover:bg-gray-600";
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "relative group";
+    block.parentNode.replaceWith(wrapper);
+    wrapper.appendChild(block.parentNode);
+    wrapper.appendChild(btn);
+
+    btn.addEventListener("click", () => {
+      navigator.clipboard.writeText(block.innerText).then(() => {
+        btn.innerText = "Copied!";
+        setTimeout(() => (btn.innerText = "Copy"), 1000);
+      });
+    });
+  });
+</script>
 </footer>
     </div>
   </body>

@@ -1,0 +1,82 @@
+{{- $url := (.Get 0) -}}
+{{- $u := urls.Parse $url -}}
+{{- $result := try (resources.GetRemote $url) -}}
+
+{{- if $result }}
+  {{- $remote := $result.Value -}}
+
+  {{- $title := "" -}}
+  {{- $description := "" -}}
+  {{- $image := "" -}}
+  {{- $find := "" -}}
+
+  {{- if eq $u.Hostname "www.youtube.com" -}}
+    {{- $find = index (findRE "<body.*?>(.|\n)*?</body>" $remote.Content) 0 -}}
+  {{- else -}}
+    {{- $find = index (findRE "<head.*?>(.|\n)*?</head>" $remote.Content) 0 -}}
+  {{- end -}}
+
+  {{- range $meta := findRE "<meta.*?>" $find -}}
+    {{- $name := replaceRE "<.*name=\"(.*?)\".*>" "$1" $meta -}}
+    {{- $property := replaceRE "<.*property=\"(.*?)\".*>" "$1" $meta -}}
+    {{- $content := replaceRE "<.*content=\"(.*?)\".*>" "$1" $meta -}}
+
+    {{- if eq $property "og:title" }}{{ $title = $content }}{{ end -}}
+    {{- if eq $property "og:description" }}{{ $description = $content }}{{ end -}}
+    {{- if eq $property "og:image" }}{{ $image = $content }}{{ end -}}
+    {{- if and (eq $description "") (eq $name "description") }}{{ $description = $content }}{{ end -}}
+  {{- end -}}
+
+  <div class="group bg-claude-bg-light border border-claude-border-light rounded-2xl hover:bg-claude-hover-light my-4 sm:my-6 overflow-hidden">
+    <a href="{{ $url }}" class="flex group-hover:no-underline">
+
+      <div class="flex flex-1 flex-col justify-between px-4 py-3 sm:px-6 sm:py-4 hover:bg-claude-hover-light transition">
+        <div class="flex-1 space-y-1">
+          <h3 class="text-sm sm:text-base font-semibold text-claude-accent-light line-clamp-2">
+            {{ with $title }}{{ . }}{{ else }}{{ $u.Host | truncate 30 }}{{ end }}
+          </h3>
+          <p class="text-xs sm:text-sm text-claude-subtext-light line-clamp-2">{{ $description | truncate 100 }}</p>
+        </div>
+        <div class="flex items-center mt-2">
+          <img src="https://www.google.com/s2/favicons?sz=14&domain_url={{ $u.Scheme }}://{{ $u.Host }}" alt="favicon" class="w-4 h-4 mr-1">
+          <span class="text-xs sm:text-sm text-claude-subtext-light">{{ $u.Host | truncate 30 }}</span>
+        </div>
+      </div>
+      <div class="w-[120px] sm:w-[230px] h-[120px] flex-shrink-0">
+        {{ with $image }}
+          <img src="{{ htmlUnescape . }}" alt="{{ $description }}" class="h-full w-full object-cover rounded-l-2xl">
+        {{ else }}
+          <div class="flex h-full w-full items-center justify-center bg-claude-bg-light rounded-l-2xl">
+            <svg class="h-8 w-8 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159..." />
+            </svg>
+          </div>
+        {{ end }}
+      </div>
+    </a>
+  </div>  
+
+{{- else }}
+  <div class="web-card hover:cursor-not-allowed h-[120px] bg-claude-bg-light border rounded-lg my-4 sm:my-6 px-0 overflow-hidden">
+    <div class="flex">
+      <div class="flex h-[120px] w-[120px] max-w-[230px] bg-claude-bg-light justify-center items-center text-center">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+        </svg>
+      </div>
+      <div class="flex flex-1 flex-col justify-between bg-claude-bg-light py-2 px-4 sm:py-3 sm:px-5 ">
+        <div class="flex flex-1 flex-col gap-y-1">
+          <div class="text-sm sm:text-base font-bold text-claude-text-light leading-normal break-words line-clamp-2">
+            {{ $u.Host | truncate 30 }} にアクセスできません
+          </div>
+        </div>
+        <div class="flex flex-1 flex-col justify-end">
+          <div class="flex flex-row items-center">
+            <img src="https://www.google.com/s2/favicons?sz=14&amp;domain_url={{ $u.Scheme }}://{{ $u.Host }}" class="fav-icon mr-1" alt="{{ $u.Host }} favicon image">
+            <span class="text-xs sm:text-sm text-claude-subtext-light">{{ $u.Host | truncate 30 }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{{- end }}

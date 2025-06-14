@@ -36,7 +36,7 @@
 }
 
 .content-body a {
-  @apply text-claude-accent-light underline hover:no-underline;
+  @apply text-claude-accent-light no-underline hover:underline;
 }
 
 .content-body hr {
@@ -76,27 +76,10 @@
   @apply rounded-lg my-4;
 }
 
-/* Chroma base wrapper */
-.content-body pre.chroma {
-  @apply rounded-lg overflow-x-auto my-4 p-4 text-sm bg-claude-codeblock-light;
+.content-body pre {
+  @apply relative rounded-lg overflow-x-auto my-4 text-sm;
 }
 
-/* 例: コメント */
-.content-body .chroma .c {
-  @apply text-gray-400 italic;
-}
-
-/* 例: キーワード */
-.content-body .chroma .k {
-  @apply text-purple-600 font-semibold;
-}
-
-/* 例: 文字列 */
-.content-body .chroma .s {
-  @apply text-green-600;
-}
-
-/* 例: 関数名 */
-.content-body .chroma .nf {
-  @apply text-blue-600;
+.content-body pre button {
+  @apply absolute top-2 right-2 z-10 hidden group-hover:block;
 }

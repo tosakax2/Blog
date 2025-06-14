@@ -13,7 +13,7 @@
 <!-- ファビコン -->
 <link rel="icon" href="/favicon.ico" />
 
-<!-- CDN -->
+<!-- Webフォント -->
 <link
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/noto-sans-cjk-jp@1.0.1/index.min.css"
@@ -23,6 +23,16 @@
   href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap"
   rel="stylesheet"
 />
+
+<!-- Highlight.js -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css"
+/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>
+  hljs.highlightAll();
+</script>
 
 <!-- TailWind CSS -->
 {{ with (templates.Defer (dict "key" "global")) }} {{ with resources.Get
