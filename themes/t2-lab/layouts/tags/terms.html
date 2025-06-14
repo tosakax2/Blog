@@ -1,0 +1,36 @@
+{{ define "main" }}
+<h1 class="text-3xl text-claude-text-light font-bold mb-6" data-scramble>
+  {{ .Title }}
+</h1>
+
+<!-- Category list -->
+<h2 class="text-2xl text-claude-text-light font-semibold mb-4">Categories</h2>
+<div class="mb-8 flex flex-wrap gap-2">
+  {{ range $name, $_ := .Site.Taxonomies.categories }}
+    <a href="/categories/{{ $name | urlize }}/" class="px-2 py-[2px] rounded bg-claude-accent-light text-claude-bg-light text-sm">{{ $name }}</a>
+  {{ end }}
+</div>
+
+<!-- Tag cloud -->
+<h2 class="text-2xl text-claude-text-light font-semibold mb-4">Tags</h2>
+<div class="tag-cloud">
+  {{ range $tag, $pages := .Site.Taxonomies.tags }}
+    {{ $count := len $pages }}
+    {{ $class := "" }}
+    {{ if lt $count 2 }}
+      {{ $class = "text-xs" }}
+    {{ else if lt $count 4 }}
+      {{ $class = "text-sm" }}
+    {{ else if lt $count 6 }}
+      {{ $class = "text-base" }}
+    {{ else if lt $count 8 }}
+      {{ $class = "text-lg" }}
+    {{ else if lt $count 10 }}
+      {{ $class = "text-xl" }}
+    {{ else }}
+      {{ $class = "text-2xl" }}
+    {{ end }}
+    <a href="/tags/{{ $tag | urlize }}/" class="{{ $class }}">{{ $tag }}</a>
+  {{ end }}
+</div>
+{{ end }}
