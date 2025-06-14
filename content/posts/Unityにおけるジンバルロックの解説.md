@@ -1,5 +1,5 @@
 +++
-draft = true
+draft = false
 date = '2024-12-06T15:53:22+09:00'
 title = 'Unityにおけるジンバルロックの解説'
 categories = ['Tech']

@@ -1,8 +1,8 @@
 +++
-draft = true
+draft = false
 date = '2024-11-30T15:53:22+09:00'
 title = '【艦これ】鎮守府秋刀魚祭り-8bitアレンジ'
-categories = ['創作']
+categories = ['Creative']
 tags = ['艦これ', '耳コピ', 'Chiptune']
 +++
 
@@ -19,3 +19,5 @@ tags = ['艦これ', '耳コピ', 'Chiptune']
 {{< niconico sm44354664 >}}
 
 {{< linkcard "https://github.com/tosakax2/Blog" >}}
+
+{{< linkcard "https://www.pixiv.net/artworks/131500437" >}}

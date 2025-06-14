@@ -11,7 +11,7 @@
     {{ range .Params.categories }}
     <a
       href="/categories/{{ . | urlize }}/"
-      class="text-xs inline-block rounded bg-stone-200 text-stone-700 px-2 py-1 mr-1 hover:bg-stone-300"
+      class="text-xs inline-block rounded bg-claude-accent-light text-white px-2 py-[2px] mr-1"
       >{{ . }}</a
     >
     {{ end }}
@@ -22,8 +22,8 @@
     {{ range .Params.tags }}
     <a
       href="/tags/{{ . | urlize }}/"
-      class="text-xs inline-block rounded bg-stone-200 text-stone-700 px-2 py-1 mr-1 hover:bg-stone-300"
-      >{{ . }}</a
+      class="text-xs inline-block rounded border border-claude-accent-light text-claude-accent-light px-2 py-[2px] mr-1"
+      ># {{ . }}</a
     >
     {{ end }}
   </div>

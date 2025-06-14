@@ -27,26 +27,29 @@
     {{- if and (eq $description "") (eq $name "description") }}{{ $description = $content }}{{ end -}}
   {{- end -}}
 
-  <div class="group bg-claude-bg-light border border-claude-border-light rounded-2xl hover:bg-claude-hover-light my-4 sm:my-6 overflow-hidden">
-    <a href="{{ $url }}" class="flex group-hover:no-underline">
-
-      <div class="flex flex-1 flex-col justify-between px-4 py-3 sm:px-6 sm:py-4 hover:bg-claude-hover-light transition">
-        <div class="flex-1 space-y-1">
-          <h3 class="text-sm sm:text-base font-semibold text-claude-accent-light line-clamp-2">
-            {{ with $title }}{{ . }}{{ else }}{{ $u.Host | truncate 30 }}{{ end }}
-          </h3>
-          <p class="text-xs sm:text-sm text-claude-subtext-light line-clamp-2">{{ $description | truncate 100 }}</p>
+  <div class="group bg-claude-bg-light border border-claude-border-light rounded-2xl hover:bg-claude-hover-light my-2 sm:my-4 overflow-hidden">
+    <a href="{{ $url }}" class="flex group-hover:no-underline items-center min-h-[140px]" style="height: 140px;">
+      <!-- テキスト部 -->
+      <div class="flex flex-1 flex-col justify-between px-3 py-2 sm:px-4 sm:py-2 group-hover:bg-claude-hover-light h-full overflow-hidden">
+        <div>
+          {{ if $title }}
+            <div class="text-sm sm:text-base font-semibold text-claude-accent-light truncate mt-2">{{ $title }}</div>
+          {{ end }}
+          {{ if $description }}
+            <div class="text-xs sm:text-sm text-claude-subtext-light line-clamp-2 mt-1">{{ $description }}</div>
+          {{ end }}
         </div>
-        <div class="flex items-center mt-2">
+        <div class="flex items-center mt-1">
           <img src="https://www.google.com/s2/favicons?sz=14&domain_url={{ $u.Scheme }}://{{ $u.Host }}" alt="favicon" class="w-4 h-4 mr-1">
-          <span class="text-xs sm:text-sm text-claude-subtext-light">{{ $u.Host | truncate 30 }}</span>
+          <span class="text-xs sm:text-sm text-claude-subtext-light truncate">{{ $u.Host | truncate 40 }}</span>
         </div>
       </div>
-      <div class="w-[120px] sm:w-[230px] h-[120px] flex-shrink-0">
+      <!-- サムネイル部 高さ140px -->
+      <div class="w-[110px] sm:w-[180px] h-[140px] flex-shrink-0 flex items-center justify-center group-hover:bg-claude-hover-light bg-claude-bg-light">
         {{ with $image }}
-          <img src="{{ htmlUnescape . }}" alt="{{ $description }}" class="h-full w-full object-cover rounded-l-2xl">
+          <img src="{{ htmlUnescape . }}" alt="{{ $description }}" class="max-h-full max-w-full object-contain rounded-l-2xl">
         {{ else }}
-          <div class="flex h-full w-full items-center justify-center bg-claude-bg-light rounded-l-2xl">
+          <div class="flex h-full w-full items-center justify-center group-hover:bg-claude-hover-light bg-claude-bg-light rounded-l-2xl">
             <svg class="h-8 w-8 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159..." />
             </svg>
@@ -54,27 +57,23 @@
         {{ end }}
       </div>
     </a>
-  </div>  
+  </div>
 
 {{- else }}
-  <div class="web-card hover:cursor-not-allowed h-[120px] bg-claude-bg-light border rounded-lg my-4 sm:my-6 px-0 overflow-hidden">
-    <div class="flex">
-      <div class="flex h-[120px] w-[120px] max-w-[230px] bg-claude-bg-light justify-center items-center text-center">
+  <div class="web-card hover:cursor-not-allowed h-[140px] bg-claude-bg-light border rounded-lg my-2 sm:my-4 px-0 overflow-hidden flex items-center">
+    <div class="flex h-full w-full">
+      <div class="flex h-full w-[110px] max-w-[180px] bg-claude-bg-light justify-center items-center text-center">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
           <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
         </svg>
       </div>
-      <div class="flex flex-1 flex-col justify-between bg-claude-bg-light py-2 px-4 sm:py-3 sm:px-5 ">
-        <div class="flex flex-1 flex-col gap-y-1">
-          <div class="text-sm sm:text-base font-bold text-claude-text-light leading-normal break-words line-clamp-2">
-            {{ $u.Host | truncate 30 }} にアクセスできません
-          </div>
+      <div class="flex flex-1 flex-col justify-between bg-claude-bg-light py-2 px-3 sm:py-2 sm:px-4 h-full overflow-hidden">
+        <div class="text-sm sm:text-base font-bold text-claude-text-light leading-normal break-words truncate">
+          {{ $u.Host | truncate 30 }} にアクセスできません
         </div>
-        <div class="flex flex-1 flex-col justify-end">
-          <div class="flex flex-row items-center">
-            <img src="https://www.google.com/s2/favicons?sz=14&amp;domain_url={{ $u.Scheme }}://{{ $u.Host }}" class="fav-icon mr-1" alt="{{ $u.Host }} favicon image">
-            <span class="text-xs sm:text-sm text-claude-subtext-light">{{ $u.Host | truncate 30 }}</span>
-          </div>
+        <div class="flex flex-row items-center mt-1">
+          <img src="https://www.google.com/s2/favicons?sz=14&amp;domain_url={{ $u.Scheme }}://{{ $u.Host }}" class="fav-icon mr-1" alt="{{ $u.Host }} favicon image">
+          <span class="text-xs sm:text-sm text-claude-subtext-light truncate">{{ $u.Host | truncate 40 }}</span>
         </div>
       </div>
     </div>

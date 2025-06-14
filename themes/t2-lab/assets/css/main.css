@@ -6,8 +6,7 @@
   --color-claude-subtext-light: #73726c;
   --color-claude-border-light: #bbbbbb;
   --color-claude-accent-light: #c76648;
-  --color-claude-hover-light: #f5f4ee;
-  --color-claude-focus-light: #f0eee7;
+  --color-claude-hover-light: #f0eee7;
   --color-claude-codeblock-light: #ffffff;
 
   --color-claude-bg-dark: #262624;
@@ -15,8 +14,7 @@
   --color-claude-subtext-dark: #9c9a93;
   --color-claude-border-dark: #65645f;
   --color-claude-accent-dark: #c76648;
-  --color-claude-hover-dark: #1f1e1d;
-  --color-claude-focus-dark: #141413;
+  --color-claude-hover-dark: #141413;
   --color-claude-codeblock-dark: #30302e;
 }
 
@@ -36,7 +34,7 @@
 }
 
 .content-body a {
-  @apply text-claude-accent-light no-underline hover:underline;
+  @apply text-claude-accent-light no-underline;
 }
 
 .content-body hr {
