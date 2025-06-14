@@ -3,6 +3,8 @@
   {{ .Title }}
 </h1>
 
+<div class="bg-claude-bg-light border border-claude-border-light rounded-2xl p-6">
+
 <!-- Category list -->
 <h2 class="text-2xl text-claude-text-light font-semibold mb-4">Categories</h2>
 <div class="mb-8 flex flex-wrap gap-2">
@@ -11,8 +13,10 @@
   {{ end }}
 </div>
 
+<div class="border-b border-claude-border-light my-6"></div>
+
 <!-- Tag cloud -->
-<h2 class="text-2xl text-claude-text-light font-semibold mb-4">Tags</h2>
+<h2 class="text-2xl text-claude-text-light font-semibold mb-4">Tag Cloud</h2>
 <div class="tag-cloud">
   {{ range $tag, $pages := .Site.Taxonomies.tags }}
     {{ $count := len $pages }}
@@ -32,5 +36,6 @@
     {{ end }}
     <a href="/tags/{{ $tag | urlize }}/" class="{{ $class }}">{{ $tag }}</a>
   {{ end }}
+</div>
 </div>
 {{ end }}
