@@ -16,6 +16,13 @@
       <description></description>
     </item>
     <item>
+      <title>自作PC</title>
+      <link>http://localhost:1313/tags/%E8%87%AA%E4%BD%9Cpc/</link>
+      <pubDate>Tue, 10 Dec 2024 15:53:22 +0900</pubDate>
+      <guid>http://localhost:1313/tags/%E8%87%AA%E4%BD%9Cpc/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Unity</title>
       <link>http://localhost:1313/tags/unity/</link>
       <pubDate>Fri, 06 Dec 2024 15:53:22 +0900</pubDate>
@@ -27,6 +34,20 @@
       <link>http://localhost:1313/tags/%E3%82%B8%E3%83%B3%E3%83%90%E3%83%AB%E3%83%AD%E3%83%83%E3%82%AF/</link>
       <pubDate>Fri, 06 Dec 2024 15:53:22 +0900</pubDate>
       <guid>http://localhost:1313/tags/%E3%82%B8%E3%83%B3%E3%83%90%E3%83%AB%E3%83%AD%E3%83%83%E3%82%AF/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ライフハック</title>
+      <link>http://localhost:1313/tags/%E3%83%A9%E3%82%A4%E3%83%95%E3%83%8F%E3%83%83%E3%82%AF/</link>
+      <pubDate>Wed, 04 Dec 2024 15:53:22 +0900</pubDate>
+      <guid>http://localhost:1313/tags/%E3%83%A9%E3%82%A4%E3%83%95%E3%83%8F%E3%83%83%E3%82%AF/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Windows</title>
+      <link>http://localhost:1313/tags/windows/</link>
+      <pubDate>Sun, 01 Dec 2024 15:53:22 +0900</pubDate>
+      <guid>http://localhost:1313/tags/windows/</guid>
       <description></description>
     </item>
     <item>
@@ -48,27 +69,6 @@
       <link>http://localhost:1313/tags/%E8%80%B3%E3%82%B3%E3%83%94/</link>
       <pubDate>Sat, 30 Nov 2024 15:53:22 +0900</pubDate>
       <guid>http://localhost:1313/tags/%E8%80%B3%E3%82%B3%E3%83%94/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Blue</title>
-      <link>http://localhost:1313/tags/blue/</link>
-      <pubDate>Wed, 15 Mar 2023 11:00:00 -0700</pubDate>
-      <guid>http://localhost:1313/tags/blue/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Green</title>
-      <link>http://localhost:1313/tags/green/</link>
-      <pubDate>Wed, 15 Mar 2023 11:00:00 -0700</pubDate>
-      <guid>http://localhost:1313/tags/green/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Red</title>
-      <link>http://localhost:1313/tags/red/</link>
-      <pubDate>Wed, 15 Mar 2023 11:00:00 -0700</pubDate>
-      <guid>http://localhost:1313/tags/red/</guid>
       <description></description>
     </item>
   </channel>

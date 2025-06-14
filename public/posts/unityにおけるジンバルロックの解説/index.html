@@ -100,7 +100,7 @@
         
         <div class="flex-1">
           
-          <div class="mx-auto max-w-2xl mx-auto py-8 px-4 mt-8">
+          <div class="mx-auto max-w-2xl mx-auto my-8 py-8 px-4">
             <main>
 <article>
   <h1 class="text-3xl text-claude-text-light font-bold mb-4">Unityにおけるジンバルロックの解説</h1>
@@ -114,7 +114,7 @@
     
     <a
       href="/categories/tech/"
-      class="text-xs inline-block rounded bg-claude-accent-light text-white px-2 py-[2px] mr-1"
+      class="text-xs inline-block rounded bg-claude-accent-light text-claude-bg-light px-2 py-[2px] mr-1"
       >Tech</a
     >
     
@@ -204,21 +204,21 @@
 </ul>
 <h3 id="3-unity-でクォータニオンを使う方法">3. Unity でクォータニオンを使う方法</h3>
 <p>Unity の API には、クォータニオンを直接操作するための便利な機能が多数用意されています。以下に、代表的な使い方を紹介します。</p>
-<h3 id="4-クォータニオンによる回転の設定"><strong>4. クォータニオンによる回転の設定</strong></h3>
+<h3 id="4-クォータニオンによる回転の設定">4. クォータニオンによる回転の設定</h3>
 <p>オブジェクトの回転をクォータニオンで直接設定できます。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> Start() {
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 90度をX軸周りに回転</span>
 </span></span><span style="display:flex;"><span>    transform.rotation = Quaternion.Euler(<span style="color:#ae81ff">90</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>);
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p><code>Quaternion.Euler</code>メソッドを使用すれば、オイラー角からクォータニオンに変換できます。この方法でオイラー角の使用を最小限に抑えられます。</p>
-<h3 id="5-回転の補間"><strong>5. 回転の補間</strong></h3>
+<h3 id="5-回転の補間">5. 回転の補間</h3>
 <p>回転をスムーズに補間する場合、<code>Quaternion.Lerp</code>または<code>Quaternion.Slerp</code>を利用します。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> Update() {
 </span></span><span style="display:flex;"><span>    Quaternion targetRotation = Quaternion.Euler(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">180</span>, <span style="color:#ae81ff">0</span>);
 </span></span><span style="display:flex;"><span>    transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime);
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>ここでは、現在の回転から目標の回転（Y 軸 180 度）に向かって滑らかに回転する例を示しています。</p>
-<h3 id="6-特定の軸周りに回転"><strong>6. 特定の軸周りに回転</strong></h3>
+<h3 id="6-特定の軸周りに回転">6. 特定の軸周りに回転</h3>
 <p>クォータニオンを用いると、任意の軸周りに回転を追加できます。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> Update() {
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Y軸を中心に毎フレーム1度回転</span>
@@ -353,8 +353,9 @@ Unity のアニメーターで、オイラー角を使用した回転アニメ�
 >
   <p>Copyright 2025. All rights reserved.</p>
 </div>
-
-<script>
+</footer>
+    </div>
+    <script>
   document.querySelectorAll("pre code").forEach((block) => {
     const btn = document.createElement("button");
     btn.innerText = "Copy";
@@ -375,7 +376,60 @@ Unity のアニメーターで、オイラー角を使用した回転アニメ�
     });
   });
 </script>
-</footer>
-    </div>
+
+<script>
+  window.scrambleTitle = function ({
+    selector = "h1[data-scramble]",
+    letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-",
+    interval = 40,
+    fixInterval = 130,
+  } = {}) {
+    const els = document.querySelectorAll(selector);
+
+    els.forEach((el) => {
+      const finalText = el.dataset.scrambleText || el.textContent;
+      let display = Array.from(finalText);
+      let fixed = Array(finalText.length).fill(false);
+      let currentStep = 0;
+      let scrambleTimer, fixTimer;
+
+      
+      scrambleTimer = setInterval(() => {
+        for (let i = 0; i < finalText.length; i++) {
+          if (!fixed[i] && finalText[i] !== " ") {
+            display[i] = letters[Math.floor(Math.random() * letters.length)];
+          } else {
+            display[i] = finalText[i];
+          }
+        }
+        el.textContent = display.join("");
+      }, interval);
+
+      
+      fixTimer = setInterval(() => {
+        if (currentStep < finalText.length) {
+          while (
+            finalText[currentStep] === " " &&
+            currentStep < finalText.length
+          ) {
+            fixed[currentStep] = true;
+            currentStep++;
+          }
+          fixed[currentStep] = true;
+          currentStep++;
+        } else {
+          clearInterval(scrambleTimer);
+          clearInterval(fixTimer);
+          el.textContent = finalText;
+        }
+      }, fixInterval);
+    });
+  };
+
+  document.addEventListener("DOMContentLoaded", () => {
+    window.scrambleTitle();
+  });
+</script>
+
   </body>
 </html>

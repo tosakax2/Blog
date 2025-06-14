@@ -100,7 +100,7 @@
         
         <div class="flex-1">
           
-          <div class="mx-auto max-w-2xl mx-auto py-8 px-4 mt-8">
+          <div class="mx-auto max-w-2xl mx-auto my-8 py-8 px-4">
             <main>
 <h1 class="text-3xl text-claude-text-light font-bold mb-6">Unity</h1>
 
@@ -114,7 +114,7 @@
       tabindex="0"
     >
       <div>
-        <div class="flex flex-wrap items-center gap-x-2 mb-3">
+        <div class="flex flex-wrap items-center gap-x-2 gap-y-2 mb-3">
           <span class="text-claude-subtext-light text-sm mr-2 flex items-center"
             >2024-12-06</span
           >
@@ -122,7 +122,7 @@
           <span class="flex items-center">
             
             <span
-              class="inline-block bg-claude-accent-light text-white px-2 py-[2px] rounded mr-1 text-xs align-middle"
+              class="inline-block bg-claude-accent-light text-claude-bg-light px-2 py-[2px] rounded mr-1 text-xs align-middle"
               >Tech</span
             >
             
@@ -161,8 +161,9 @@
 >
   <p>Copyright 2025. All rights reserved.</p>
 </div>
-
-<script>
+</footer>
+    </div>
+    <script>
   document.querySelectorAll("pre code").forEach((block) => {
     const btn = document.createElement("button");
     btn.innerText = "Copy";
@@ -183,7 +184,60 @@
     });
   });
 </script>
-</footer>
-    </div>
+
+<script>
+  window.scrambleTitle = function ({
+    selector = "h1[data-scramble]",
+    letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-",
+    interval = 40,
+    fixInterval = 130,
+  } = {}) {
+    const els = document.querySelectorAll(selector);
+
+    els.forEach((el) => {
+      const finalText = el.dataset.scrambleText || el.textContent;
+      let display = Array.from(finalText);
+      let fixed = Array(finalText.length).fill(false);
+      let currentStep = 0;
+      let scrambleTimer, fixTimer;
+
+      
+      scrambleTimer = setInterval(() => {
+        for (let i = 0; i < finalText.length; i++) {
+          if (!fixed[i] && finalText[i] !== " ") {
+            display[i] = letters[Math.floor(Math.random() * letters.length)];
+          } else {
+            display[i] = finalText[i];
+          }
+        }
+        el.textContent = display.join("");
+      }, interval);
+
+      
+      fixTimer = setInterval(() => {
+        if (currentStep < finalText.length) {
+          while (
+            finalText[currentStep] === " " &&
+            currentStep < finalText.length
+          ) {
+            fixed[currentStep] = true;
+            currentStep++;
+          }
+          fixed[currentStep] = true;
+          currentStep++;
+        } else {
+          clearInterval(scrambleTimer);
+          clearInterval(fixTimer);
+          el.textContent = finalText;
+        }
+      }, fixInterval);
+    });
+  };
+
+  document.addEventListener("DOMContentLoaded", () => {
+    window.scrambleTitle();
+  });
+</script>
+
   </body>
 </html>

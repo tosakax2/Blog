@@ -114,7 +114,7 @@
     
     <a
       href="/categories/idea/"
-      class="text-xs inline-block rounded bg-claude-accent-light text-white px-2 py-[2px] mr-1"
+      class="text-xs inline-block rounded bg-claude-accent-light text-claude-bg-light px-2 py-[2px] mr-1"
       >Idea</a
     >
     
@@ -150,8 +150,9 @@
 >
   <p>Copyright 2025. All rights reserved.</p>
 </div>
-
-<script>
+</footer>
+    </div>
+    <script>
   document.querySelectorAll("pre code").forEach((block) => {
     const btn = document.createElement("button");
     btn.innerText = "Copy";
@@ -172,7 +173,60 @@
     });
   });
 </script>
-</footer>
-    </div>
+
+<script>
+  window.scrambleTitle = function ({
+    selector = "h1[data-scramble]",
+    letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-",
+    interval = 40,
+    fixInterval = 130,
+  } = {}) {
+    const els = document.querySelectorAll(selector);
+
+    els.forEach((el) => {
+      const finalText = el.dataset.scrambleText || el.textContent;
+      let display = Array.from(finalText);
+      let fixed = Array(finalText.length).fill(false);
+      let currentStep = 0;
+      let scrambleTimer, fixTimer;
+
+      
+      scrambleTimer = setInterval(() => {
+        for (let i = 0; i < finalText.length; i++) {
+          if (!fixed[i] && finalText[i] !== " ") {
+            display[i] = letters[Math.floor(Math.random() * letters.length)];
+          } else {
+            display[i] = finalText[i];
+          }
+        }
+        el.textContent = display.join("");
+      }, interval);
+
+      
+      fixTimer = setInterval(() => {
+        if (currentStep < finalText.length) {
+          while (
+            finalText[currentStep] === " " &&
+            currentStep < finalText.length
+          ) {
+            fixed[currentStep] = true;
+            currentStep++;
+          }
+          fixed[currentStep] = true;
+          currentStep++;
+        } else {
+          clearInterval(scrambleTimer);
+          clearInterval(fixTimer);
+          el.textContent = finalText;
+        }
+      }, fixInterval);
+    });
+  };
+
+  document.addEventListener("DOMContentLoaded", () => {
+    window.scrambleTitle();
+  });
+</script>
+
   </body>
 </html>

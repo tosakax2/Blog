@@ -17,7 +17,3 @@ tags = ['艦これ', '耳コピ', 'Chiptune']
 ## ニコニコ動画
 
 {{< niconico sm44354664 >}}
-
-{{< linkcard "https://github.com/tosakax2/Blog" >}}
-
-{{< linkcard "https://www.pixiv.net/artworks/131500437" >}}

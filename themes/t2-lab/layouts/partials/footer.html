@@ -3,25 +3,3 @@
 >
   <p>Copyright {{ now.Year }}. All rights reserved.</p>
 </div>
-
-<script>
-  document.querySelectorAll("pre code").forEach((block) => {
-    const btn = document.createElement("button");
-    btn.innerText = "Copy";
-    btn.className =
-      "absolute top-2 right-2 bg-gray-700 text-white text-xs px-2 py-1 rounded hover:bg-gray-600";
-
-    const wrapper = document.createElement("div");
-    wrapper.className = "relative group";
-    block.parentNode.replaceWith(wrapper);
-    wrapper.appendChild(block.parentNode);
-    wrapper.appendChild(btn);
-
-    btn.addEventListener("click", () => {
-      navigator.clipboard.writeText(block.innerText).then(() => {
-        btn.innerText = "Copied!";
-        setTimeout(() => (btn.innerText = "Copy"), 1000);
-      });
-    });
-  });
-</script>

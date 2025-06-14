@@ -11,7 +11,7 @@
     {{ range .Params.categories }}
     <a
       href="/categories/{{ . | urlize }}/"
-      class="text-xs inline-block rounded bg-claude-accent-light text-white px-2 py-[2px] mr-1"
+      class="text-xs inline-block rounded bg-claude-accent-light text-claude-bg-light px-2 py-[2px] mr-1"
       >{{ . }}</a
     >
     {{ end }}

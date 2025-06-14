@@ -114,7 +114,7 @@
     
     <a
       href="/categories/creative/"
-      class="text-xs inline-block rounded bg-claude-accent-light text-white px-2 py-[2px] mr-1"
+      class="text-xs inline-block rounded bg-claude-accent-light text-claude-bg-light px-2 py-[2px] mr-1"
       >Creative</a
     >
     
@@ -167,58 +167,6 @@
   ></iframe>
 </div>
 
-<div class="group bg-claude-bg-light border border-claude-border-light rounded-2xl hover:bg-claude-hover-light my-2 sm:my-4 overflow-hidden">
-    <a href="https://github.com/tosakax2/Blog" class="flex group-hover:no-underline items-center min-h-[140px]" style="height: 140px;">
-      
-      <div class="flex flex-1 flex-col justify-between px-3 py-2 sm:px-4 sm:py-2 group-hover:bg-claude-hover-light h-full overflow-hidden">
-        <div>
-          
-            <div class="text-sm sm:text-base font-semibold text-claude-accent-light truncate mt-2">GitHub - tosakax2/Blog</div>
-          
-          
-            <div class="text-xs sm:text-sm text-claude-subtext-light line-clamp-2 mt-1">Contribute to tosakax2/Blog development by creating an account on GitHub.</div>
-          
-        </div>
-        <div class="flex items-center mt-1">
-          <img src="https://www.google.com/s2/favicons?sz=14&domain_url=https://github.com" alt="favicon" class="w-4 h-4 mr-1">
-          <span class="text-xs sm:text-sm text-claude-subtext-light truncate">github.com</span>
-        </div>
-      </div>
-      
-      <div class="w-[110px] sm:w-[180px] h-[140px] flex-shrink-0 flex items-center justify-center group-hover:bg-claude-hover-light bg-claude-bg-light">
-        
-          <img src="https://opengraph.githubassets.com/09cf5985bb40736c417409edc7fd71dcb0a6ce29147ae5d6541853ea94e7174d/tosakax2/Blog" alt="Contribute to tosakax2/Blog development by creating an account on GitHub." class="max-h-full max-w-full object-contain rounded-l-2xl">
-        
-      </div>
-    </a>
-  </div>
-
-<div class="group bg-claude-bg-light border border-claude-border-light rounded-2xl hover:bg-claude-hover-light my-2 sm:my-4 overflow-hidden">
-    <a href="https://www.pixiv.net/artworks/131500437" class="flex group-hover:no-underline items-center min-h-[140px]" style="height: 140px;">
-      
-      <div class="flex flex-1 flex-col justify-between px-3 py-2 sm:px-4 sm:py-2 group-hover:bg-claude-hover-light h-full overflow-hidden">
-        <div>
-          
-            <div class="text-sm sm:text-base font-semibold text-claude-accent-light truncate mt-2">#異世界転生 旅の仲間 - 天原のイラスト - pixiv</div>
-          
-          
-            <div class="text-xs sm:text-sm text-claude-subtext-light line-clamp-2 mt-1">全員方向性が違う頼もしさ</div>
-          
-        </div>
-        <div class="flex items-center mt-1">
-          <img src="https://www.google.com/s2/favicons?sz=14&domain_url=https://www.pixiv.net" alt="favicon" class="w-4 h-4 mr-1">
-          <span class="text-xs sm:text-sm text-claude-subtext-light truncate">www.pixiv.net</span>
-        </div>
-      </div>
-      
-      <div class="w-[110px] sm:w-[180px] h-[140px] flex-shrink-0 flex items-center justify-center group-hover:bg-claude-hover-light bg-claude-bg-light">
-        
-          <img src="https://embed.pixiv.net/artwork.php?illust_id=131500437&amp;mdate=1749783673" alt="全員方向性が違う頼もしさ" class="max-h-full max-w-full object-contain rounded-l-2xl">
-        
-      </div>
-    </a>
-  </div>
-
 </section>
 </article>
 </main>
@@ -231,8 +179,9 @@
 >
   <p>Copyright 2025. All rights reserved.</p>
 </div>
-
-<script>
+</footer>
+    </div>
+    <script>
   document.querySelectorAll("pre code").forEach((block) => {
     const btn = document.createElement("button");
     btn.innerText = "Copy";
@@ -253,7 +202,60 @@
     });
   });
 </script>
-</footer>
-    </div>
+
+<script>
+  window.scrambleTitle = function ({
+    selector = "h1[data-scramble]",
+    letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-",
+    interval = 40,
+    fixInterval = 130,
+  } = {}) {
+    const els = document.querySelectorAll(selector);
+
+    els.forEach((el) => {
+      const finalText = el.dataset.scrambleText || el.textContent;
+      let display = Array.from(finalText);
+      let fixed = Array(finalText.length).fill(false);
+      let currentStep = 0;
+      let scrambleTimer, fixTimer;
+
+      
+      scrambleTimer = setInterval(() => {
+        for (let i = 0; i < finalText.length; i++) {
+          if (!fixed[i] && finalText[i] !== " ") {
+            display[i] = letters[Math.floor(Math.random() * letters.length)];
+          } else {
+            display[i] = finalText[i];
+          }
+        }
+        el.textContent = display.join("");
+      }, interval);
+
+      
+      fixTimer = setInterval(() => {
+        if (currentStep < finalText.length) {
+          while (
+            finalText[currentStep] === " " &&
+            currentStep < finalText.length
+          ) {
+            fixed[currentStep] = true;
+            currentStep++;
+          }
+          fixed[currentStep] = true;
+          currentStep++;
+        } else {
+          clearInterval(scrambleTimer);
+          clearInterval(fixTimer);
+          el.textContent = finalText;
+        }
+      }, fixInterval);
+    });
+  };
+
+  document.addEventListener("DOMContentLoaded", () => {
+    window.scrambleTitle();
+  });
+</script>
+
   </body>
 </html>
