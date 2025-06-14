@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ジンバルロック on T2-Lab</title>
-    <link>http://localhost:1313/tags/%E3%82%B8%E3%83%B3%E3%83%90%E3%83%AB%E3%83%AD%E3%83%83%E3%82%AF/</link>
+    <link>https://example.org/tags/%E3%82%B8%E3%83%B3%E3%83%90%E3%83%AB%E3%83%AD%E3%83%83%E3%82%AF/</link>
     <description>Recent content in ジンバルロック on T2-Lab</description>
     <generator>Hugo</generator>
     <language>ja</language>
     <lastBuildDate>Fri, 06 Dec 2024 15:53:22 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/%E3%82%B8%E3%83%B3%E3%83%90%E3%83%AB%E3%83%AD%E3%83%83%E3%82%AF/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://example.org/tags/%E3%82%B8%E3%83%B3%E3%83%90%E3%83%AB%E3%83%AD%E3%83%83%E3%82%AF/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Unityにおけるジンバルロックの解説</title>
-      <link>http://localhost:1313/posts/unity%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8B%E3%82%B8%E3%83%B3%E3%83%90%E3%83%AB%E3%83%AD%E3%83%83%E3%82%AF%E3%81%AE%E8%A7%A3%E8%AA%AC/</link>
+      <link>https://example.org/posts/unity%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8B%E3%82%B8%E3%83%B3%E3%83%90%E3%83%AB%E3%83%AD%E3%83%83%E3%82%AF%E3%81%AE%E8%A7%A3%E8%AA%AC/</link>
       <pubDate>Fri, 06 Dec 2024 15:53:22 +0900</pubDate>
-      <guid>http://localhost:1313/posts/unity%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8B%E3%82%B8%E3%83%B3%E3%83%90%E3%83%AB%E3%83%AD%E3%83%83%E3%82%AF%E3%81%AE%E8%A7%A3%E8%AA%AC/</guid>
+      <guid>https://example.org/posts/unity%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8B%E3%82%B8%E3%83%B3%E3%83%90%E3%83%AB%E3%83%AD%E3%83%83%E3%82%AF%E3%81%AE%E8%A7%A3%E8%AA%AC/</guid>
       <description>&lt;p&gt;3D 空間における回転の制御について語る際、避けては通れない問題の一つに「ジンバルロック」という現象があります。これは、オイラー角（回転を 3 軸の角度で表現する方法）を用いた回転の計算に起因する問題であり、3D ゲームエンジンである Unity においても頻繁に話題となります。&lt;/p&gt;&#xA;&lt;p&gt;ジンバルロックの本質は、回転軸の一部が重なってしまい、3 次元的な自由度が失われる現象です。これにより、オブジェクトの回転が予期せぬ挙動を引き起こすことがあり、ゲーム開発者にとって頭痛の種となり得ます。&lt;/p&gt;&#xA;&lt;p&gt;Unity では、オブジェクトの回転をオイラー角（&lt;code&gt;transform.eulerAngles&lt;/code&gt;）で操作することが可能ですが、この便利な機能を使用する際にはジンバルロックの危険性を理解し、適切に対処することが求められます。本記事では、ジンバルロックの基礎的な仕組みから、その発生原因、Unity における具体例、さらにそれを克服するための方法について、丁寧に解説いたします。&lt;/p&gt;&#xA;&lt;h2 id=&#34;ジンバルロックの仕組み&#34;&gt;ジンバルロックの仕組み&lt;/h2&gt;&#xA;&lt;p&gt;ジンバルロックの問題を理解するには、まず 3D 空間での回転の仕組みを知る必要があります。その中心的な要素となるのが「オイラー角」です。オイラー角は、3 つの回転軸（通常は X、Y、Z）に沿って、オブジェクトを回転させる方法です。たとえば、Unity では&lt;code&gt;transform.eulerAngles&lt;/code&gt;を用いることで、オブジェクトの回転をオイラー角として取得・設定することが可能です。&lt;/p&gt;&#xA;&lt;h3 id=&#34;1-オイラー角の仕組み&#34;&gt;1. オイラー角の仕組み&lt;/h3&gt;&#xA;&lt;p&gt;オイラー角は次の手順でオブジェクトを回転させます。&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;X 軸周りに回転&lt;/li&gt;&#xA;&lt;li&gt;次に、Y 軸周りに回転&lt;/li&gt;&#xA;&lt;li&gt;最後に、Z 軸周りに回転&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;このように、オイラー角は順序に従って回転を適用します。この「順序」が重要であり、ジンバルロックの原因ともなります。&lt;/p&gt;&#xA;&lt;h3 id=&#34;2-ジンバルロックの発生&#34;&gt;2. ジンバルロックの発生&lt;/h3&gt;&#xA;&lt;p&gt;ジンバルロックは、オイラー角を用いて回転を表現した際に、特定の角度において 2 つの回転軸が重なってしまう現象です。この結果、本来 3 つあった自由度のうち 1 つが失われ、オブジェクトの回転が期待通りに機能しなくなります。具体的には、ある回転軸が他の軸と重なることで、回転操作が制約を受けます。&lt;/p&gt;&#xA;&lt;h3 id=&#34;3-簡単な例&#34;&gt;3. 簡単な例&lt;/h3&gt;&#xA;&lt;p&gt;たとえば、オブジェクトを 90 度回転させたとします。このとき、Y 軸と Z 軸が同一平面上に重なり、回転が歪むことがあります。この状態では、もう一方の軸方向への回転が制御できなくなります。&lt;/p&gt;&#xA;&lt;h3 id=&#34;4-ジンバルロックを視覚的に理解する&#34;&gt;4. ジンバルロックを視覚的に理解する&lt;/h3&gt;&#xA;&lt;p&gt;ジンバルロックの概念を直感的に理解するには、3 つの輪をイメージしてください。それぞれの輪は X、Y、Z 軸の回転を表しており、互いに直交しています。しかし、回転の結果として 2 つの輪が同一平面上に揃ってしまうと、1 つの回転軸が失われます。この状態こそがジンバルロックです。&lt;/p&gt;&#xA;&lt;h2 id=&#34;unity-におけるジンバルロックの発生とその影響&#34;&gt;Unity におけるジンバルロックの発生とその影響&lt;/h2&gt;&#xA;&lt;p&gt;Unity においてジンバルロックが発生する主な原因は、オブジェクトの回転をオイラー角（&lt;code&gt;transform.eulerAngles&lt;/code&gt;）で操作している場合です。Unity の Transform コンポーネントは、オブジェクトの位置、スケール、回転を管理しますが、回転に関しては内部的にクォータニオンという形式を使用しています。それにもかかわらず、Unity は開発者の利便性のためにオイラー角のインターフェースを提供しているのです。この便利な機能が、ジンバルロックを引き起こすきっかけとなり得ます。&lt;/p&gt;&#xA;&lt;h3 id=&#34;1-ジンバルロックが発生する具体的なケース&#34;&gt;1. ジンバルロックが発生する具体的なケース&lt;/h3&gt;&#xA;&lt;p&gt;以下のような状況でジンバルロックが発生する可能性があります。&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;2 軸回転の組み合わせ&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;オブジェクトを X 軸と Y 軸に沿って連続的に回転させる場合、ある特定の角度に達すると Z 軸の回転が制限され、回転が思い通りにいかなくなることがあります。&lt;/p&gt;</description>
     </item>
   </channel>
