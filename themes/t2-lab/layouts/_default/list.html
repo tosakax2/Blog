@@ -1,5 +1,7 @@
 {{ define "main" }}
-<h1 class="text-3xl text-claude-text-light font-bold mb-6">{{ .Title }}</h1>
+<h1 class="text-3xl text-claude-text-light font-bold mb-6" data-scramble>
+  {{ .Title }}
+</h1>
 {{ if .Content }}
 <div class="prose mb-8">{{ .Content }}</div>
 {{ end }}

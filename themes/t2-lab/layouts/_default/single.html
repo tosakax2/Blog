@@ -1,6 +1,8 @@
 {{ define "main" }}
 <article>
-  <h1 class="text-3xl text-claude-text-light font-bold mb-4">{{ .Title }}</h1>
+  <h1 class="text-3xl text-claude-text-light font-bold mb-4" data-scramble>
+    {{ .Title }}
+  </h1>
   {{ with .Date }}
   <time class="block text-claude-subtext-light text-sm mb-4" datetime="{{ . }}"
     >{{ .Format "2006-01-02" }}</time

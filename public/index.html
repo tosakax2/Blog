@@ -106,8 +106,9 @@
 <div class="flex items-center justify-center min-h-[60vh]">
   <h1
     id="main-title"
-    class="text-6xl md:text-8xl font-extrabold text-center tracking-wider select-none data-scramble"
+    class="text-6xl md:text-8xl font-extrabold text-center tracking-wider select-none"
     style="font-family: 'Noto Sans JP', sans-serif"
+    data-scramble
   >
     T2-Lab
   </h1>
@@ -151,20 +152,28 @@
     selector = "h1[data-scramble]",
     letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-",
     interval = 40,
-    fixInterval = 130,
+    totalDuration = 1000, 
   } = {}) {
     const els = document.querySelectorAll(selector);
 
     els.forEach((el) => {
       const finalText = el.dataset.scrambleText || el.textContent;
+      const length = finalText.length;
       let display = Array.from(finalText);
-      let fixed = Array(finalText.length).fill(false);
+      let fixed = Array(length).fill(false);
       let currentStep = 0;
       let scrambleTimer, fixTimer;
 
       
+      const stepsToFix = [...Array(length).keys()].filter(
+        (i) => finalText[i] !== " "
+      ); 
+      const charsToFix = stepsToFix.length;
+      const perChar = totalDuration / charsToFix;
+
+      
       scrambleTimer = setInterval(() => {
-        for (let i = 0; i < finalText.length; i++) {
+        for (let i = 0; i < length; i++) {
           if (!fixed[i] && finalText[i] !== " ") {
             display[i] = letters[Math.floor(Math.random() * letters.length)];
           } else {
@@ -175,23 +184,22 @@
       }, interval);
 
       
-      fixTimer = setInterval(() => {
-        if (currentStep < finalText.length) {
-          while (
-            finalText[currentStep] === " " &&
-            currentStep < finalText.length
-          ) {
-            fixed[currentStep] = true;
-            currentStep++;
-          }
-          fixed[currentStep] = true;
-          currentStep++;
+      let fixIndex = 0;
+      function fixNextChar() {
+        while (fixIndex < length && finalText[fixIndex] === " ") {
+          fixed[fixIndex] = true;
+          fixIndex++;
+        }
+        if (fixIndex < length) {
+          fixed[fixIndex] = true;
+          fixIndex++;
+          setTimeout(fixNextChar, perChar);
         } else {
           clearInterval(scrambleTimer);
-          clearInterval(fixTimer);
           el.textContent = finalText;
         }
-      }, fixInterval);
+      }
+      setTimeout(fixNextChar, perChar);
     });
   };
 
