@@ -8,6 +8,7 @@
   --color-claude-accent-light: #c76648;
   --color-claude-hover-light: #f5f4ee;
   --color-claude-focus-light: #f0eee7;
+  --color-claude-codeblock-light: #ffffff;
 
   --color-claude-bg-dark: #262624;
   --color-claude-text-dark: #c2c0b7;
@@ -16,9 +17,86 @@
   --color-claude-accent-dark: #c76648;
   --color-claude-hover-dark: #1f1e1d;
   --color-claude-focus-dark: #141413;
+  --color-claude-codeblock-dark: #30302e;
 }
 
 :root {
   --font-sans: "Noto Sans CJK JP", "Noto Sans JP", ui-sans-serif, system-ui,
     sans-serif;
+}
+
+.content-body h1,
+.content-body h2,
+.content-body h3 {
+  @apply font-bold text-claude-text-light mb-4 mt-8;
+}
+
+.content-body p {
+  @apply text-base leading-7 text-claude-text-light mb-4;
+}
+
+.content-body a {
+  @apply text-claude-accent-light underline hover:no-underline;
+}
+
+.content-body hr {
+  @apply border-t border-claude-border-light my-8;
+}
+
+.content-body ul,
+.content-body ol {
+  @apply ml-6 mb-4 text-claude-text-light;
+}
+
+.content-body ul {
+  @apply list-disc;
+}
+
+.content-body ol {
+  @apply list-decimal;
+}
+
+.content-body blockquote {
+  @apply border-l-4 border-claude-accent-light pl-4 italic text-claude-subtext-light mb-4;
+}
+
+.content-body table {
+  @apply w-full table-auto border-collapse my-6 text-left text-sm;
+}
+
+.content-body th {
+  @apply border-b border-claude-border-light font-bold px-3 py-2 bg-claude-hover-light;
+}
+
+.content-body td {
+  @apply border-b border-claude-border-light px-3 py-2;
+}
+
+.content-body img {
+  @apply rounded-lg my-4;
+}
+
+/* Chroma base wrapper */
+.content-body pre.chroma {
+  @apply rounded-lg overflow-x-auto my-4 p-4 text-sm bg-claude-codeblock-light;
+}
+
+/* 例: コメント */
+.content-body .chroma .c {
+  @apply text-gray-400 italic;
+}
+
+/* 例: キーワード */
+.content-body .chroma .k {
+  @apply text-purple-600 font-semibold;
+}
+
+/* 例: 文字列 */
+.content-body .chroma .s {
+  @apply text-green-600;
+}
+
+/* 例: 関数名 */
+.content-body .chroma .nf {
+  @apply text-blue-600;
 }

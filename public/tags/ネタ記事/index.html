@@ -24,6 +24,11 @@
   href="https://cdn.jsdelivr.net/npm/noto-sans-cjk-jp@1.0.1/index.min.css"
 />
 
+<link
+  href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap"
+  rel="stylesheet"
+/>
+
 
     
 <link rel="stylesheet" href="/css/main.css" />
@@ -32,34 +37,45 @@
   </head>
 
   <body>
-    <div class="bg-gray-50">
+    <div class="bg-claude-bg-light">
       
       <div class="min-h-screen flex flex-col">
         
-        <header><div class="fixed top-0 left-0 w-full bg-white border-b border-gray-200 z-50">
+        <header><div
+  class="fixed top-0 left-0 w-full bg-claude-bg-light border-b border-claude-border-light z-50"
+>
   <div class="mx-auto max-w-3xl px-4 py-3 flex items-center justify-between">
-    <h1 class="text-xl font-bold">T2-Lab</h1>
+    <h1 class="text-xl text-claude-text-light font-bold">
+      <a href="/">T2-Lab</a>
+    </h1>
     
     <nav>
       <ul class="flex space-x-4 text-sm font-medium">
         <li>
           <a
+            href="/"
+            class="text-claude-text-light hover:text-claude-accent-light"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a
             href="/posts/"
-            class="text-gray-700 hover:text-blue-600"
+            class="text-claude-text-light hover:text-claude-accent-light"
             >Posts</a
           >
         </li>
         <li>
           <a
             href="/tags/"
-            class="text-gray-700 hover:text-blue-600"
+            class="text-claude-text-light hover:text-claude-accent-light"
             >Tags</a
           >
         </li>
         <li>
           <a
             href="/categories/"
-            class="text-gray-700 hover:text-blue-600"
+            class="text-claude-text-light hover:text-claude-accent-light"
             >Categories</a
           >
         </li>
@@ -75,10 +91,8 @@
         <div class="flex-1">
           
           <div class="mx-auto max-w-2xl mx-auto py-8 px-4">
-            
-            <div class="rounded-2xl p-8 my-8 border border-gray-200">
-              <main>
-<h1 class="text-3xl font-bold mb-6">ネタ記事</h1>
+            <main>
+<h1 class="text-3xl text-claude-text-light font-bold mb-6">ネタ記事</h1>
 
 
 <ul class="space-y-6">
@@ -86,39 +100,50 @@
   <li>
     <a
       href="/posts/%E4%BA%BA%E9%96%93%E5%B7%A5%E5%AD%A6%E3%81%A8%E6%A4%85%E5%AD%90%E3%81%AE%E6%AD%B4%E5%8F%B2%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E4%B8%80%E8%80%83%E5%AF%9F/"
-      class="block bg-white rounded-2xl shadow p-6 hover:shadow-lg transition-shadow border border-gray-100 group focus:ring-2 focus:ring-blue-300 outline-none"
+      class="block bg-claude-bg-light hover:bg-claude-hover-light rounded-2xl p-6 border border-claude-border-light outline-none"
       tabindex="0"
     >
       <div>
-        <div class="text-gray-500 text-sm flex flex-wrap items-center gap-x-2 mb-3">
+        <div
+          class="text-claude-subtext-light text-sm flex flex-wrap items-center gap-x-2 mb-3"
+        >
           <span>2025-06-13</span>
           
           <span>
             
-            <span class="inline-block bg-green-100 text-green-700 px-2 py-0.5 rounded mr-1 text-xs">[雑記]</span>
+            <span
+              class="inline-block bg-green-200 text-green-700 px-2 py-0.5 rounded mr-1 text-xs"
+              >[雑記]</span
+            >
             
           </span>
            
           <span>
             
-            <span class="inline-block bg-gray-200 text-gray-700 px-2 py-0.5 rounded mr-1 text-xs">#ネタ記事</span>
+            <span
+              class="inline-block bg-stone-200 text-stone-700 px-2 py-0.5 rounded mr-1 text-xs"
+              >#ネタ記事</span
+            >
             
           </span>
           
         </div>
-        <div class="text-xl text-blue-700 font-semibold group-hover:underline">人間工学と椅子の歴史に関する一考察</div>
+        <div class="text-xl text-claude-accent-light font-semibold">
+          人間工学と椅子の歴史に関する一考察
+        </div>
       </div>
     </a>
   </li>
   
 </ul>
 </main>
-            </div>
           </div>
         </div>
       </div>
 
-      <footer><div class="text-center text-gray-400 py-4 text-sm border-t border-gray-200">
+      <footer><div
+  class="text-center text-claude-subtext-light py-4 text-sm border-t border-claude-border-light"
+>
   <p>Copyright 2025. All rights reserved.</p>
 </div>
 </footer>

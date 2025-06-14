@@ -11,7 +11,7 @@
     {{ range .Params.categories }}
     <a
       href="/categories/{{ . | urlize }}/"
-      class="text-xs inline-block rounded bg-stone-200 px-2 py-1 mr-1 hover:bg-stone-300"
+      class="text-xs inline-block rounded bg-stone-200 text-stone-700 px-2 py-1 mr-1 hover:bg-stone-300"
       >{{ . }}</a
     >
     {{ end }}
@@ -31,6 +31,6 @@
 
   <div class="border-b border-claude-border-light mb-6"></div>
 
-  <section>{{ .Content }}</section>
+  <section class="content-body">{{ .Content }}</section>
 </article>
 {{ end }}

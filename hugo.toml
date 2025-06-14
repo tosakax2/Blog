@@ -26,3 +26,8 @@ theme = "t2-lab"
     includePaths = ["assets/css"]
     [markup.postCSS.options]
       use = ["autoprefixer"]
+  [markup.highlight]
+    noClasses = false
+    style = "github"
+    lineNos = true
+    lineNumbersInTable = true
