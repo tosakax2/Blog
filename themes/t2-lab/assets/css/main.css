@@ -89,3 +89,11 @@
 .content-body pre button {
   @apply absolute top-2 right-2 z-10 hidden group-hover:block;
 }
+
+.tag-cloud {
+  @apply flex flex-wrap gap-2 mb-6 leading-relaxed;
+}
+
+.tag-cloud a {
+  @apply text-claude-accent-light hover:underline mr-2;
+}
